@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -13,7 +14,7 @@ use GpsLab\Component\Interval\Exception\IncorrectIntervalTypeException;
 use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 
 /**
- * @link https://en.wikipedia.org/wiki/Interval_(mathematics)
+ * @see https://en.wikipedia.org/wiki/Interval_(mathematics)
  */
 final class IntervalType
 {
@@ -28,28 +29,28 @@ final class IntervalType
     const TYPE_END_EXCLUDED = 2;
 
     /**
-     * [a, b]
+     * [a, b].
      *
      * @var int
      */
     const TYPE_CLOSED = 0;
 
     /**
-     * [a, b)
+     * [a, b).
      *
      * @var int
      */
     const TYPE_HALF_CLOSED = self::TYPE_CLOSED | self::TYPE_END_EXCLUDED;
 
     /**
-     * (a, b]
+     * (a, b].
      *
      * @var int
      */
     const TYPE_HALF_OPEN = self::TYPE_CLOSED | self::TYPE_START_EXCLUDED;
 
     /**
-     * (a, b)
+     * (a, b).
      *
      * @var int
      */
@@ -95,6 +96,7 @@ final class IntervalType
     {
         $this->type = $type;
     }
+
     /**
      * @return int[]
      */
@@ -208,14 +210,14 @@ final class IntervalType
             throw InvalidIntervalFormatException::create('[a, b]', $string);
         }
 
-        $type = IntervalType::TYPE_CLOSED;
+        $type = self::TYPE_CLOSED;
 
         if ($match['start'] == '(') {
-            $type |= IntervalType::TYPE_START_EXCLUDED;
+            $type |= self::TYPE_START_EXCLUDED;
         }
 
         if ($match['end'] == ')') {
-            $type |= IntervalType::TYPE_END_EXCLUDED;
+            $type |= self::TYPE_END_EXCLUDED;
         }
 
         return self::create($type);
@@ -254,7 +256,7 @@ final class IntervalType
      */
     public function getReadable(IntervalInterface $interval)
     {
-        return $this->format((string)$interval->startPoint(), (string)$interval->endPoint());
+        return $this->format((string) $interval->startPoint(), (string) $interval->endPoint());
     }
 
     /**

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -119,7 +120,7 @@ class DateTimeIntervalComparator
     }
 
     /**
-     * The point is before the interval
+     * The point is before the interval.
      *
      * @param DateTimeIntervalPoint $point
      *
@@ -131,7 +132,7 @@ class DateTimeIntervalComparator
     }
 
     /**
-     * The point is after the interval
+     * The point is after the interval.
      *
      * @param DateTimeIntervalPoint $point
      *
