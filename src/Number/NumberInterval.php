@@ -17,6 +17,19 @@ use GpsLab\Component\Interval\IntervalType;
 class NumberInterval implements IntervalInterface
 {
     /**
+     * @var string
+     */
+    const REGEXP = '/^
+        \(|\[            # start type char
+        \s*
+        (?<start>\-?\d+) # start point
+        \s*,\s*          # separator
+        (?<end>\-?\d+)   # end point
+        \s*
+        \)|\]            # end type char
+    $/x';
+
+    /**
      * @var IntervalType
      */
     private $type;
@@ -126,11 +139,11 @@ class NumberInterval implements IntervalInterface
      */
     public static function fromString($string)
     {
-        if (!preg_match('/^(\(|\[)\s*(\-?\d+)\s*,\s*(\-?\d+)\s*(\)|\])$/', $string, $match)) {
+        if (!preg_match(self::REGEXP, $string, $match)) {
             throw InvalidIntervalFormatException::create('[N, N]', $string);
         }
 
-        return self::create($match[2], $match[3], IntervalType::fromString($string));
+        return self::create($match['start'], $match['end'], IntervalType::fromString($string));
     }
 
     /**
