@@ -1,0 +1,153 @@
+<?php
+/**
+ * GpsLab component.
+ *
+ * @author    Peter Gribanov <info@peter-gribanov.ru>
+ * @copyright Copyright (c) 2016, Peter Gribanov
+ * @license   http://opensource.org/licenses/MIT
+ */
+
+namespace Pkvs\Carousel\Tests\Domain\Interval\Number;
+
+use GpsLab\Component\Interval\IntervalType;
+use GpsLab\Component\Interval\Number\NumberInterval;
+use GpsLab\Component\Interval\Number\NumberIntervalComparator;
+use GpsLab\Component\Interval\Number\NumberIntervalPoint;
+
+class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @return array
+     */
+    public function getContainsPoints()
+    {
+        return [
+            ['[2,5]', 1, false],
+            ['[2,5]', 2, true],
+            ['(2,5]', 2, false],
+            ['[2,5]', 6, false],
+            ['[2,5]', 5, true],
+            ['[2,5)', 5, false],
+        ];
+    }
+
+    /**
+     * @dataProvider getContainsPoints
+     *
+     * @param string $interval
+     * @param int $point
+     * @param bool $expected
+     */
+    public function testContains($interval, $point, $expected)
+    {
+        $interval = $this->createInterval($interval);
+        $comparator = new NumberIntervalComparator($interval);
+
+        $this->assertEquals($expected, $comparator->contains(new NumberIntervalPoint($point)));
+    }
+
+    /**
+     * @return array
+     */
+    public function getIntersectIntervals()
+    {
+        return [
+            ['[5,10]', '[1,7]', false, true],
+            ['[5,10]', '[6,9]', false, true], // inscribed
+            ['[5,10]', '[7,15]', false, true],
+            ['[5,10]', '[1,15]', false, true], // describes
+            ['[5,10]', '[1,5]', false, true], // start = end
+            ['[5,10]', '[10,15]', false, true], // end = start
+            // not intersect
+            ['[5,10]', '[1,4]', false, false],
+            ['[5,10]', '[11,15]', false, false],
+            // check interval type
+            ['[5,10]', '[1,5]', true, true],
+            ['(5,10]', '[1,5]', true, false],
+            ['[5,10]', '[1,5)', true, false],
+            ['[5,10]', '[10,15]', true, true],
+            ['[5,10)', '[10,15]', true, false],
+            ['[5,10]', '(10,15]', true, false],
+        ];
+    }
+
+    /**
+     * @dataProvider getIntersectIntervals
+     *
+     * @param string $origin_interval
+     * @param string $compare_interval
+     * @param bool $check_interval_type
+     * @param bool $expected
+     */
+    public function testIntersect($origin_interval, $compare_interval, $check_interval_type, $expected)
+    {
+        $origin_interval = $this->createInterval($origin_interval);
+        $compare_interval = $this->createInterval($compare_interval);
+        $comparator = new NumberIntervalComparator($origin_interval);
+
+        $this->assertEquals($expected, $comparator->intersect($compare_interval, $check_interval_type));
+    }
+
+    /**
+     * @return array
+     */
+    public function getIntersectIntervalIntervals()
+    {
+        return [
+            ['[5,10]', '[1,7]', '[5,7]'],
+            ['(5,10]', '[1,7)', '(5,7)'],
+            ['[5,10]', '[6,9]', '[6,9]'], // inscribed
+            ['[5,10]', '(6,9)', '(6,9)'], // inscribed
+            ['[5,10]', '[7,15]', '[7,10]'],
+            ['[5,10)', '(7,15]', '(7,10)'],
+            ['[5,10]', '[1,15]', '[5,10]'], // describes
+            ['(5,10)', '[1,15]', '(5,10)'], // describes
+            // not intersect
+            ['[5,10]', '[1,5]', null], // start = end
+            ['[5,10]', '[10,15]', null], // end = start
+            ['[5,10]', '[1,4]', null],
+            ['[5,10]', '[11,15]', null],
+        ];
+    }
+
+    /**
+     * @dataProvider getIntersectIntervalIntervals
+     *
+     * @param string $origin_interval
+     * @param string $compare_interval
+     * @param string|null $expected_interval
+     */
+    public function testIntersectInterval($origin_interval, $compare_interval, $expected_interval)
+    {
+        $origin_interval = $this->createInterval($origin_interval);
+        $compare_interval = $this->createInterval($compare_interval);
+        $expected_interval = $expected_interval ? $this->createInterval($expected_interval) : null;
+        $comparator = new NumberIntervalComparator($origin_interval);
+
+        $this->assertEquals($expected_interval, $comparator->intersectInterval($compare_interval));
+    }
+
+    /**
+     * @param string $interval
+     *
+     * @return NumberInterval
+     */
+    private function createInterval($interval)
+    {
+        if (!preg_match('/^(\(|\[)(\d+),\s*(\d+)(\)|\])$/', $interval, $match)) {
+            throw new \InvalidArgumentException(sprintf('Interval "%s" is invalid.', $interval));
+        }
+
+        $type = IntervalType::TYPE_CLOSED;
+
+        if ($match[1] == '(') {
+            $type |= IntervalType::TYPE_START_EXCLUDED;
+        }
+
+        if ($match[4] == ')') {
+            $type |= IntervalType::TYPE_END_EXCLUDED;
+        }
+
+        return NumberInterval::create($match[2], $match[3], IntervalType::create($type));
+    }
+}
