@@ -10,11 +10,25 @@
 namespace GpsLab\Component\Interval\DateTime;
 
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
+use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
 class DateTimeInterval implements IntervalInterface
 {
+    /**
+     * @var string
+     */
+    const REGEXP = '/^
+        (?:\(|\[)                                     # start type char
+        \s*
+        (?<start>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) # start point
+        \s*,\s*                                       # separator
+        (?<end>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})   # end point
+        \s*
+        (?:\)|\])                                     # end type char
+    $/x';
+
     /**
      * @var IntervalType
      */
@@ -106,6 +120,34 @@ class DateTimeInterval implements IntervalInterface
     public static function open(\DateTime $start, \DateTime $end)
     {
         return static::create($start, $end, IntervalType::open());
+    }
+
+    /**
+     * Create interval from string.
+     *
+     * Example formats for all interval types:
+     *   [2016-12-09 02:55:00, 2016-12-21 12:30:12]
+     *   (2015-03-07 12:04:45, 2015-10-19 19:38:14]
+     *   [2014-09-11 17:31:09, 2015-02-08 23:45:58)
+     *   (2013-10-27 15:03:37, 2013-10-30 05:06:34)
+     *
+     * Spaces are ignored in format.
+     *
+     * @param string $string
+     *
+     * @return self
+     */
+    public static function fromString($string)
+    {
+        if (!preg_match(self::REGEXP, $string, $match)) {
+            throw InvalidIntervalFormatException::create('[YYYY-MM-DD HH:II:SS, YYYY-MM-DD HH:II:SS]', $string);
+        }
+
+        return self::create(
+            new \DateTime($match['start']),
+            new \DateTime($match['end']),
+            IntervalType::fromString($string)
+        );
     }
 
     /**
