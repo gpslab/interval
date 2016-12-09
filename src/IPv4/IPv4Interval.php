@@ -10,11 +10,25 @@
 namespace GpsLab\Component\Interval\IPv4;
 
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
+use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
 class IPv4Interval implements IntervalInterface
 {
+    /**
+     * @var string
+     */
+    const REGEXP = '/^
+        (?:\(|\[)                                    # start type char
+        \s*
+        (?<start>\d{1-3}\.\d{1-3}\.\d{1-3}\.\d{1-3}) # start point
+        \s*,\s*                                      # separator
+        (?<end>\d{1-3}\.\d{1-3}\.\d{1-3}\.\d{1-3})   # end point
+        \s*
+        (?:\)|\])                                    # end type char
+    $/x';
+
     /**
      * @var IntervalType
      */
@@ -106,6 +120,30 @@ class IPv4Interval implements IntervalInterface
     public static function open($start, $end)
     {
         return static::create($start, $end, IntervalType::open());
+    }
+
+    /**
+     * Create interval from string.
+     *
+     * Example formats for all interval types:
+     *   [10.0.1.0, 10.0.1.255]
+     *   (10.0.0.0, 10.255.255.255]
+     *   [172.16.0.0, 172.31.255.255)
+     *   (192.168.0.0, 192.168.255.255)
+     *
+     * Spaces are ignored in format.
+     *
+     * @param string $string
+     *
+     * @return self
+     */
+    public static function fromString($string)
+    {
+        if (!preg_match(self::REGEXP, $string, $match)) {
+            throw InvalidIntervalFormatException::create('[0.0.0.0, 255.255.255.255]', $string);
+        }
+
+        return self::create($match['start'], $match['end'], IntervalType::fromString($string));
     }
 
     /**
