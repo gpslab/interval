@@ -129,7 +129,7 @@ class WeekInterval implements IntervalInterface
      *   [2016-12-09, 2016-12-21]
      *   (2015-03-07, 2015-10-19]
      *   [2014-09-11, 2015-02-08)
-     *   (2013-10-27, 2013-10-30)
+     *   (2013-10-02, 2013-10-30)
      *
      * Spaces are ignored in format.
      *

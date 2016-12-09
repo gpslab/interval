@@ -10,11 +10,25 @@
 namespace GpsLab\Component\Interval\Year;
 
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
+use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
 class YearInterval implements IntervalInterface
 {
+    /**
+     * @var string
+     */
+    const REGEXP = '/^
+        (?:\(|\[)       # start type char
+        \s*
+        (?<start>\d{4}) # start point
+        \s*,\s*         # separator
+        (?<end>\d{4})   # end point
+        \s*
+        (?:\)|\])       # end type char
+    $/x';
+
     /**
      * @var IntervalType
      */
@@ -106,6 +120,34 @@ class YearInterval implements IntervalInterface
     public static function open(\DateTime $start, \DateTime $end)
     {
         return static::create($start, $end, IntervalType::open());
+    }
+
+    /**
+     * Create interval from string.
+     *
+     * Example formats for all interval types:
+     *   [2016, 2017]
+     *   (2015, 2016]
+     *   [2014, 2015)
+     *   (2013, 2014)
+     *
+     * Spaces are ignored in format.
+     *
+     * @param string $string
+     *
+     * @return self
+     */
+    public static function fromString($string)
+    {
+        if (!preg_match(self::REGEXP, $string, $match)) {
+            throw InvalidIntervalFormatException::create('[YYYY, YYYY]', $string);
+        }
+
+        return self::create(
+            (new \DateTime())->setDate($match['start'], 1, 1),
+            (new \DateTime())->setDate($match['end'], 1, 1),
+            IntervalType::fromString($string)
+        );
     }
 
     /**
