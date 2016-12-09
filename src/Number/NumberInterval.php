@@ -10,6 +10,7 @@
 namespace GpsLab\Component\Interval\Number;
 
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
+use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
@@ -106,6 +107,20 @@ class NumberInterval implements IntervalInterface
     public static function open($start, $end)
     {
         return self::create($start, $end, IntervalType::open());
+    }
+
+    /**
+     * @param string $string
+     *
+     * @return self
+     */
+    public static function fromString($string)
+    {
+        if (!preg_match('/^(\(|\[)\s*(\-?\d+)\s*,\s*(\-?\d+)\s*(\)|\])$/', $string, $match)) {
+            throw InvalidIntervalFormatException::create('[-2, 2]', $string);
+        }
+
+        return self::create($match[2], $match[3], IntervalType::fromString($string));
     }
 
     /**

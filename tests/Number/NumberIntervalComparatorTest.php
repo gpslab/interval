@@ -9,7 +9,6 @@
 
 namespace Pkvs\Carousel\Tests\Domain\Interval\Number;
 
-use GpsLab\Component\Interval\IntervalType;
 use GpsLab\Component\Interval\Number\NumberInterval;
 use GpsLab\Component\Interval\Number\NumberIntervalComparator;
 use GpsLab\Component\Interval\Number\NumberIntervalPoint;
@@ -28,6 +27,7 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
             ['[2,5]', 6, false],
             ['[2,5]', 5, true],
             ['[2,5)', 5, false],
+            ['[-5,-2]', -3, true],
         ];
     }
 
@@ -40,7 +40,7 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testContains($interval, $point, $expected)
     {
-        $interval = $this->createInterval($interval);
+        $interval = NumberInterval::fromString($interval);
         $comparator = new NumberIntervalComparator($interval);
 
         $this->assertEquals($expected, $comparator->contains(new NumberIntervalPoint($point)));
@@ -81,8 +81,8 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testIntersect($origin_interval, $compare_interval, $check_interval_type, $expected)
     {
-        $origin_interval = $this->createInterval($origin_interval);
-        $compare_interval = $this->createInterval($compare_interval);
+        $origin_interval = NumberInterval::fromString($origin_interval);
+        $compare_interval = NumberInterval::fromString($compare_interval);
         $comparator = new NumberIntervalComparator($origin_interval);
 
         $this->assertEquals($expected, $comparator->intersect($compare_interval, $check_interval_type));
@@ -119,25 +119,11 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testIntersectInterval($origin_interval, $compare_interval, $expected_interval)
     {
-        $origin_interval = $this->createInterval($origin_interval);
-        $compare_interval = $this->createInterval($compare_interval);
-        $expected_interval = $expected_interval ? $this->createInterval($expected_interval) : null;
+        $origin_interval = NumberInterval::fromString($origin_interval);
+        $compare_interval = NumberInterval::fromString($compare_interval);
+        $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
         $comparator = new NumberIntervalComparator($origin_interval);
 
         $this->assertEquals($expected_interval, $comparator->intersectInterval($compare_interval));
-    }
-
-    /**
-     * @param string $interval
-     *
-     * @return NumberInterval
-     */
-    private function createInterval($interval)
-    {
-        if (!preg_match('/^(\(|\[)(\d+),\s*(\d+)(\)|\])$/', $interval, $match)) {
-            throw new \InvalidArgumentException(sprintf('Interval "%s" is invalid.', $interval));
-        }
-
-        return NumberInterval::create($match[2], $match[3], IntervalType::fromString($interval));
     }
 }

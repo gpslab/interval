@@ -19,7 +19,7 @@ class InvalidIntervalFormatException extends \InvalidArgumentException
     public static function create($expected, $actual)
     {
         return new self(sprintf(
-            'Expected interval format is "%s". Actual format is "%s".',
+            'The example of expected interval format is "%s". Actual format is "%s".',
             $expected,
             $actual
         ));
