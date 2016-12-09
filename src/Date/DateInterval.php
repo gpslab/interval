@@ -143,7 +143,11 @@ class DateInterval implements IntervalInterface
             throw InvalidIntervalFormatException::create('[YYYY-MM-DD, YYYY-MM-DD]', $string);
         }
 
-        return self::create(new \DateTime($match[2]), new \DateTime($match[3]), IntervalType::fromString($string));
+        return self::create(
+            new \DateTime($match['start']),
+            new \DateTime($match['end']),
+            IntervalType::fromString($string)
+        );
     }
 
     /**
