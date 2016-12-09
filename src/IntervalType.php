@@ -56,6 +56,19 @@ final class IntervalType
     const TYPE_OPEN = self::TYPE_CLOSED | self::TYPE_START_EXCLUDED | self::TYPE_END_EXCLUDED;
 
     /**
+     * @var string
+     */
+    const REGEXP = '/^
+        (?<start>\(|\[) # start type char
+        \s*
+        [^\s]+          # start point
+        \s*,\s*         # separator
+        [^\s]+          # end point
+        \s*
+        (?<end>\)|\])   # end type char
+    $/x';
+
+    /**
      * @var IntervalType[]
      */
     private static $instances = [];
@@ -191,17 +204,17 @@ final class IntervalType
      */
     public static function fromString($string)
     {
-        if (!preg_match('/^(\(|\[).+,.+(\)|\])$/', $string, $match)) {
+        if (!preg_match(self::REGEXP, $string, $match)) {
             throw InvalidIntervalFormatException::create('[a, b]', $string);
         }
 
         $type = IntervalType::TYPE_CLOSED;
 
-        if ($match[1] == '(') {
+        if ($match['start'] == '(') {
             $type |= IntervalType::TYPE_START_EXCLUDED;
         }
 
-        if ($match[2] == ')') {
+        if ($match['end'] == ')') {
             $type |= IntervalType::TYPE_END_EXCLUDED;
         }
 
