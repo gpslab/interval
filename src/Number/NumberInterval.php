@@ -20,13 +20,13 @@ class NumberInterval implements IntervalInterface
      * @var string
      */
     const REGEXP = '/^
-        \(|\[            # start type char
+        (?:\(|\[)        # start type char
         \s*
         (?<start>\-?\d+) # start point
         \s*,\s*          # separator
         (?<end>\-?\d+)   # end point
         \s*
-        \)|\]            # end type char
+        (?:\)|\])        # end type char
     $/x';
 
     /**
