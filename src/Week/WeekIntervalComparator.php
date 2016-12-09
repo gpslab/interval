@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -119,7 +120,7 @@ class WeekIntervalComparator
     }
 
     /**
-     * The point is before the interval
+     * The point is before the interval.
      *
      * @param WeekIntervalPoint $point
      *
@@ -131,7 +132,7 @@ class WeekIntervalComparator
     }
 
     /**
-     * The point is after the interval
+     * The point is after the interval.
      *
      * @param WeekIntervalPoint $point
      *

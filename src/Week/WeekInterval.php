@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -182,7 +183,7 @@ class WeekInterval implements IntervalInterface
     }
 
     /**
-     * The point is before the interval
+     * The point is before the interval.
      *
      * @param \DateTime $point
      *
@@ -194,7 +195,7 @@ class WeekInterval implements IntervalInterface
     }
 
     /**
-     * The point is after the interval
+     * The point is after the interval.
      *
      * @param \DateTime $point
      *

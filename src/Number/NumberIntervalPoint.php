@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -104,6 +105,6 @@ class NumberIntervalPoint implements PointInterface
      */
     public function __toString()
     {
-        return (string)$this->value();
+        return (string) $this->value();
     }
 }
