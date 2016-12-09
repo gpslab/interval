@@ -138,16 +138,6 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
             throw new \InvalidArgumentException(sprintf('Interval "%s" is invalid.', $interval));
         }
 
-        $type = IntervalType::TYPE_CLOSED;
-
-        if ($match[1] == '(') {
-            $type |= IntervalType::TYPE_START_EXCLUDED;
-        }
-
-        if ($match[4] == ')') {
-            $type |= IntervalType::TYPE_END_EXCLUDED;
-        }
-
-        return NumberInterval::create($match[2], $match[3], IntervalType::create($type));
+        return NumberInterval::create($match[2], $match[3], IntervalType::fromString($interval));
     }
 }

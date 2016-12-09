@@ -10,6 +10,7 @@
 namespace GpsLab\Component\Interval;
 
 use GpsLab\Component\Interval\Exception\IncorrectIntervalTypeException;
+use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 
 /**
  * @link https://en.wikipedia.org/wiki/Interval_(mathematics)
@@ -171,6 +172,30 @@ final class IntervalType
     public static function open()
     {
         return self::safe(self::TYPE_OPEN);
+    }
+
+    /**
+     * @param string $string
+     *
+     * @return self
+     */
+    public static function fromString($string)
+    {
+        if (!preg_match('/^(\(|\[).+,.+(\)|\])$/', $string, $match)) {
+            throw InvalidIntervalFormatException::create('[a, b]', $string);
+        }
+
+        $type = IntervalType::TYPE_CLOSED;
+
+        if ($match[1] == '(') {
+            $type |= IntervalType::TYPE_START_EXCLUDED;
+        }
+
+        if ($match[2] == ')') {
+            $type |= IntervalType::TYPE_END_EXCLUDED;
+        }
+
+        return self::create($type);
     }
 
     /**
