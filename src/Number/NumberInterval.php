@@ -110,6 +110,16 @@ class NumberInterval implements IntervalInterface
     }
 
     /**
+     * Create interval from string.
+     *
+     * Example formats:
+     *   [0, 5]
+     *   (-3, 2]
+     *   [-3, -1)
+     *   (3, 9)
+     *
+     * Spaces are ignored in format.
+     *
      * @param string $string
      *
      * @return self
@@ -117,7 +127,7 @@ class NumberInterval implements IntervalInterface
     public static function fromString($string)
     {
         if (!preg_match('/^(\(|\[)\s*(\-?\d+)\s*,\s*(\-?\d+)\s*(\)|\])$/', $string, $match)) {
-            throw InvalidIntervalFormatException::create('[-2, 2]', $string);
+            throw InvalidIntervalFormatException::create('[N, N]', $string);
         }
 
         return self::create($match[2], $match[3], IntervalType::fromString($string));

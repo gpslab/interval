@@ -175,6 +175,16 @@ final class IntervalType
     }
 
     /**
+     * Create interval type from string.
+     *
+     * All types format:
+     *   [a, b]
+     *   (a, b]
+     *   [a, b)
+     *   (a, b)
+     *
+     * Spaces are ignored in format.
+     *
      * @param string $string
      *
      * @return self

@@ -10,6 +10,7 @@
 namespace GpsLab\Component\Interval\Date;
 
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
+use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
@@ -106,6 +107,30 @@ class DateInterval implements IntervalInterface
     public static function open(\DateTime $start, \DateTime $end)
     {
         return static::create($start, $end, IntervalType::open());
+    }
+
+    /**
+     * Create interval from string.
+     *
+     * Example formats for all interval types:
+     *   [2016-12-09, 2016-12-21]
+     *   (2015-03-07, 2015-10-19]
+     *   [2014-09-11, 2015-02-08)
+     *   (2013-10-27, 2013-10-30)
+     *
+     * Spaces are ignored in format.
+     *
+     * @param string $string
+     *
+     * @return self
+     */
+    public static function fromString($string)
+    {
+        if (!preg_match('/^(\(|\[)\s*(\d{4}-\d{2}-\d{2})\s*,\s*(\d{4}-\d{2}-\d{2})\s*(\)|\])$/', $string, $match)) {
+            throw InvalidIntervalFormatException::create('[YYYY-MM-DD, YYYY-MM-DD]', $string);
+        }
+
+        return self::create(new \DateTime($match[2]), new \DateTime($match[3]), IntervalType::fromString($string));
     }
 
     /**
