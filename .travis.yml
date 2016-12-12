@@ -29,5 +29,8 @@ script:
     - vendor/bin/phpunit
 
 after_script:
+    - ls -la
+    - ls -la build/logs
     - vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/clover.xml
+    - ls -la build/logs
     - vendor/bin/coveralls -v -c .coveralls.yml
