@@ -153,6 +153,16 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param DateInterval $interval
+     *
+     * @return bool
+     */
+    public function equal(DateInterval $interval)
+    {
+        return $this->comparator->equal($interval);
+    }
+
+    /**
      * @param \DateTime $point
      *
      * @return bool

@@ -10,6 +10,9 @@
 
 namespace GpsLab\Component\Interval;
 
+/**
+ * The comparator must be used only in intervals for safe use the data types.
+ */
 class IntervalComparator
 {
     /**
@@ -23,6 +26,20 @@ class IntervalComparator
     public function __construct(ComparableIntervalInterface $interval)
     {
         $this->interval = $interval;
+    }
+
+    /**
+     * @param ComparableIntervalInterface $interval
+     *
+     * @return bool
+     */
+    public function equal(ComparableIntervalInterface $interval)
+    {
+        return (
+            $this->interval->startPoint()->eq($interval->startPoint()) &&
+            $this->interval->endPoint()->eq($interval->endPoint()) &&
+            $this->interval->type()->equal($interval->type())
+        );
     }
 
     /**

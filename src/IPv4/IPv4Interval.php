@@ -150,6 +150,16 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
+     * @param IPv4Interval $interval
+     *
+     * @return bool
+     */
+    public function equal(IPv4Interval $interval)
+    {
+        return $this->comparator->equal($interval);
+    }
+
+    /**
      * @param string $point
      *
      * @return bool

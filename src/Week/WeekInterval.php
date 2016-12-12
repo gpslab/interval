@@ -154,6 +154,16 @@ class WeekInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param WeekInterval $interval
+     *
+     * @return bool
+     */
+    public function equal(WeekInterval $interval)
+    {
+        return $this->comparator->equal($interval);
+    }
+
+    /**
      * @param \DateTime $point
      *
      * @return bool

@@ -154,6 +154,16 @@ class MonthInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param MonthInterval $interval
+     *
+     * @return bool
+     */
+    public function equal(MonthInterval $interval)
+    {
+        return $this->comparator->equal($interval);
+    }
+
+    /**
      * @param \DateTime $point
      *
      * @return bool

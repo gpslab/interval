@@ -150,6 +150,16 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param NumberInterval $interval
+     *
+     * @return bool
+     */
+    public function equal(NumberInterval $interval)
+    {
+        return $this->comparator->equal($interval);
+    }
+
+    /**
      * @param int|float $point
      *
      * @return bool

@@ -154,6 +154,16 @@ class YearInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param YearInterval $interval
+     *
+     * @return bool
+     */
+    public function equal(YearInterval $interval)
+    {
+        return $this->comparator->equal($interval);
+    }
+
+    /**
      * @param \DateTime $point
      *
      * @return bool
