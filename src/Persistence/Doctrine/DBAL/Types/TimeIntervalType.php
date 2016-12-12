@@ -17,7 +17,7 @@ class TimeIntervalType extends BaseType
     /**
      * @return string
      */
-    protected function getClass()
+    protected function getIntervalClass()
     {
         return TimeInterval::class;
     }

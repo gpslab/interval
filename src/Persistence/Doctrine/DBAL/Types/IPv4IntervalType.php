@@ -17,7 +17,7 @@ class IPv4IntervalType extends BaseType
     /**
      * @return string
      */
-    protected function getClass()
+    protected function getIntervalClass()
     {
         return IPv4Interval::class;
     }

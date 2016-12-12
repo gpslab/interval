@@ -24,7 +24,7 @@ abstract class BaseType extends TextType
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        $class = $this->getClass();
+        $class = $this->getIntervalClass();
 
         return $value instanceof $class ? (string)$value : null;
     }
@@ -44,7 +44,7 @@ abstract class BaseType extends TextType
         }
 
         try {
-            return call_user_func([$this->getClass(), 'fromString'], $value);
+            return call_user_func([$this->getIntervalClass(), 'fromString'], $value);
         } catch (InvalidIntervalFormatException $e) {
             throw ConversionException::conversionFailed($value, $this->getName());
         }
@@ -55,11 +55,11 @@ abstract class BaseType extends TextType
      */
     public function getName()
     {
-        return basename($this->getClass());
+        return basename($this->getIntervalClass());
     }
 
     /**
      * @return string
      */
-    abstract protected function getClass();
+    abstract protected function getIntervalClass();
 }

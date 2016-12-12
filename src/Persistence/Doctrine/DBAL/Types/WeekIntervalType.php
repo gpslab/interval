@@ -17,7 +17,7 @@ class WeekIntervalType extends BaseType
     /**
      * @return string
      */
-    protected function getClass()
+    protected function getIntervalClass()
     {
         return WeekInterval::class;
     }

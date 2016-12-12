@@ -17,7 +17,7 @@ class MonthIntervalType extends BaseType
     /**
      * @return string
      */
-    protected function getClass()
+    protected function getIntervalClass()
     {
         return MonthInterval::class;
     }

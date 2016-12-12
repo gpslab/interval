@@ -17,7 +17,7 @@ class DateIntervalType extends BaseType
     /**
      * @return string
      */
-    protected function getClass()
+    protected function getIntervalClass()
     {
         return DateInterval::class;
     }

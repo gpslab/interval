@@ -17,7 +17,7 @@ class YearIntervalType extends BaseType
     /**
      * @return string
      */
-    protected function getClass()
+    protected function getIntervalClass()
     {
         return YearInterval::class;
     }
