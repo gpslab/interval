@@ -55,7 +55,9 @@ abstract class BaseType extends TextType
      */
     public function getName()
     {
-        return basename($this->getIntervalClass());
+        $names = explode('\\', $this->getIntervalClass());
+
+        return array_pop($names);
     }
 
     /**
