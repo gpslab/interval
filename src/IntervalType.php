@@ -62,9 +62,9 @@ final class IntervalType
     const REGEXP = '/^
         (?<start>\(|\[) # start type char
         \s*
-        [^\s]+          # start point
+        .+              # start point
         \s*,\s*         # separator
-        [^\s]+          # end point
+        .+              # end point
         \s*
         (?<end>\)|\])   # end type char
     $/x';
