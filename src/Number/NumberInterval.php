@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -180,7 +181,7 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
-     * The point is before the interval
+     * The point is before the interval.
      *
      * @param int|float $point
      *
@@ -192,7 +193,7 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
-     * The point is after the interval
+     * The point is after the interval.
      *
      * @param int|float $point
      *

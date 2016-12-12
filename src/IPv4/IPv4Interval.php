@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -180,7 +181,7 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
-     * The point is before the interval
+     * The point is before the interval.
      *
      * @param string $point
      *
@@ -192,7 +193,7 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
-     * The point is after the interval
+     * The point is after the interval.
      *
      * @param string $point
      *
@@ -216,7 +217,7 @@ class IPv4Interval implements ComparableIntervalInterface
      */
     public function start()
     {
-        return (string)$this->start;
+        return (string) $this->start;
     }
 
     /**
@@ -224,7 +225,7 @@ class IPv4Interval implements ComparableIntervalInterface
      */
     public function end()
     {
-        return (string)$this->end;
+        return (string) $this->end;
     }
 
     /**
