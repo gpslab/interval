@@ -7,7 +7,7 @@
  * @license   http://opensource.org/licenses/MIT
  */
 
-namespace Pkvs\Carousel\Tests\Domain\Interval\Number;
+namespace Pkvs\Carousel\Tests\Interval\Number;
 
 use GpsLab\Component\Interval\Number\NumberInterval;
 
