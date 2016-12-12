@@ -29,7 +29,8 @@ before_script:
     - composer install --prefer-dist --no-interaction --no-scripts --no-progress
 
 script:
-    - vendor/bin/phpunit
+    - if [ "$COVERAGE" != "1" ]; then vendor/bin/phpunit; fi;
+    - if [ "$COVERAGE" == "1" ]; then vendor/bin/phpunit --coverage-clover build/coverage-clover.xml; fi;
 
 after_script:
     - if [ "$COVERAGE" == "1" ]; then vendor/bin/ocular code-coverage:upload --format=php-clover build/coverage-clover.xml; fi;
