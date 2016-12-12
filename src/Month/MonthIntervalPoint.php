@@ -40,6 +40,6 @@ class MonthIntervalPoint extends BaseIntervalPoint
      */
     public function __toString()
     {
-        return $this->value()->format('Y m');
+        return $this->value()->format('Y/m');
     }
 }
