@@ -12,10 +12,10 @@ namespace GpsLab\Component\Interval\Year;
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
 use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalComparator;
-use GpsLab\Component\Interval\IntervalInterface;
+use GpsLab\Component\Interval\ComparableIntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
-class YearInterval implements IntervalInterface
+class YearInterval implements ComparableIntervalInterface
 {
     /**
      * @var string

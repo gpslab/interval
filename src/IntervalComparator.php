@@ -12,14 +12,14 @@ namespace GpsLab\Component\Interval;
 class IntervalComparator
 {
     /**
-     * @var IntervalInterface
+     * @var ComparableIntervalInterface
      */
     private $interval;
 
     /**
-     * @param IntervalInterface $interval
+     * @param ComparableIntervalInterface $interval
      */
-    public function __construct(IntervalInterface $interval)
+    public function __construct(ComparableIntervalInterface $interval)
     {
         $this->interval = $interval;
     }
@@ -43,12 +43,12 @@ class IntervalComparator
     }
 
     /**
-     * @param IntervalInterface $interval
+     * @param ComparableIntervalInterface $interval
      * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(IntervalInterface $interval, $check_interval_type = true)
+    public function intersects(ComparableIntervalInterface $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||
@@ -71,11 +71,11 @@ class IntervalComparator
     }
 
     /**
-     * @param IntervalInterface $interval
+     * @param ComparableIntervalInterface $interval
      *
-     * @return IntervalInterface|null
+     * @return ComparableIntervalInterface|null
      */
-    public function intersection(IntervalInterface $interval)
+    public function intersection(ComparableIntervalInterface $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (

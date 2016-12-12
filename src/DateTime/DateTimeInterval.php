@@ -12,10 +12,10 @@ namespace GpsLab\Component\Interval\DateTime;
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
 use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalComparator;
-use GpsLab\Component\Interval\IntervalInterface;
+use GpsLab\Component\Interval\ComparableIntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
-class DateTimeInterval implements IntervalInterface
+class DateTimeInterval implements ComparableIntervalInterface
 {
     /**
      * @var string

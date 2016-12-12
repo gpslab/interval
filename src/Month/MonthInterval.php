@@ -12,10 +12,10 @@ namespace GpsLab\Component\Interval\Month;
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
 use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalComparator;
-use GpsLab\Component\Interval\IntervalInterface;
+use GpsLab\Component\Interval\ComparableIntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
-class MonthInterval implements IntervalInterface
+class MonthInterval implements ComparableIntervalInterface
 {
     /**
      * @var string

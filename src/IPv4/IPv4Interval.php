@@ -12,10 +12,10 @@ namespace GpsLab\Component\Interval\IPv4;
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
 use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalComparator;
-use GpsLab\Component\Interval\IntervalInterface;
+use GpsLab\Component\Interval\ComparableIntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
-class IPv4Interval implements IntervalInterface
+class IPv4Interval implements ComparableIntervalInterface
 {
     /**
      * @var string
