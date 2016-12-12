@@ -22,13 +22,13 @@ class DateTimeInterval implements ComparableIntervalInterface
      * @var string
      */
     const REGEXP = '/^
-        (?:\(|\[)                                     # start type char
+        (?:\(|\[)                                       # start type char
         \s*
-        (?<start>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) # start point
-        \s*,\s*                                       # separator
-        (?<end>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})   # end point
+        (?<start>\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}) # start point
+        \s*,\s*                                         # separator
+        (?<end>\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})   # end point
         \s*
-        (?:\)|\])                                     # end type char
+        (?:\)|\])                                       # end type char
     $/x';
 
     /**
