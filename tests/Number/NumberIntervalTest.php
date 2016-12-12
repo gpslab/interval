@@ -10,9 +10,8 @@
 namespace Pkvs\Carousel\Tests\Interval\Number;
 
 use GpsLab\Component\Interval\Number\NumberInterval;
-use PHPUnit\Framework\TestCase;
 
-class NumberIntervalTest extends TestCase
+class NumberIntervalTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @return array
