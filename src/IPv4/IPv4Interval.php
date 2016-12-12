@@ -171,13 +171,12 @@ class IPv4Interval implements ComparableIntervalInterface
 
     /**
      * @param IPv4Interval $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(IPv4Interval $interval, $check_interval_type = true)
+    public function intersects(IPv4Interval $interval)
     {
-        return $this->comparator->intersects($interval, $check_interval_type);
+        return $this->comparator->intersects($interval);
     }
 
     /**

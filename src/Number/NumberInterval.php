@@ -171,13 +171,12 @@ class NumberInterval implements ComparableIntervalInterface
 
     /**
      * @param NumberInterval $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(NumberInterval $interval, $check_interval_type = true)
+    public function intersects(NumberInterval $interval)
     {
-        return $this->comparator->intersects($interval, $check_interval_type);
+        return $this->comparator->intersects($interval);
     }
 
     /**

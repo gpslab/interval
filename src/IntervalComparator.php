@@ -62,11 +62,10 @@ class IntervalComparator
 
     /**
      * @param ComparableIntervalInterface $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(ComparableIntervalInterface $interval, $check_interval_type = true)
+    public function intersects(ComparableIntervalInterface $interval)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||
@@ -75,14 +74,12 @@ class IntervalComparator
             return false;
         }
 
-        if ($check_interval_type) {
-            if ($this->interval->startPoint()->eq($interval->endPoint())) {
-                return !$this->interval->type()->startExcluded() && !$interval->type()->endExcluded();
-            }
+        if ($this->interval->startPoint()->eq($interval->endPoint())) {
+            return !$this->interval->type()->startExcluded() && !$interval->type()->endExcluded();
+        }
 
-            if ($this->interval->endPoint()->eq($interval->startPoint())) {
-                return !$this->interval->type()->endExcluded() && !$interval->type()->startExcluded();
-            }
+        if ($this->interval->endPoint()->eq($interval->startPoint())) {
+            return !$this->interval->type()->endExcluded() && !$interval->type()->startExcluded();
         }
 
         return true;

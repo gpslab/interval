@@ -175,13 +175,12 @@ class WeekInterval implements ComparableIntervalInterface
 
     /**
      * @param WeekInterval $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(WeekInterval $interval, $check_interval_type = true)
+    public function intersects(WeekInterval $interval)
     {
-        return $this->comparator->intersects($interval, $check_interval_type);
+        return $this->comparator->intersects($interval);
     }
 
     /**

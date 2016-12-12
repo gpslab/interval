@@ -174,13 +174,12 @@ class DateInterval implements ComparableIntervalInterface
 
     /**
      * @param DateInterval $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(DateInterval $interval, $check_interval_type = true)
+    public function intersects(DateInterval $interval)
     {
-        return $this->comparator->intersects($interval, $check_interval_type);
+        return $this->comparator->intersects($interval);
     }
 
     /**

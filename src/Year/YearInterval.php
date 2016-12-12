@@ -175,13 +175,12 @@ class YearInterval implements ComparableIntervalInterface
 
     /**
      * @param YearInterval $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(YearInterval $interval, $check_interval_type = true)
+    public function intersects(YearInterval $interval)
     {
-        return $this->comparator->intersects($interval, $check_interval_type);
+        return $this->comparator->intersects($interval);
     }
 
     /**

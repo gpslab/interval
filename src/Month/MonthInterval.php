@@ -175,13 +175,12 @@ class MonthInterval implements ComparableIntervalInterface
 
     /**
      * @param MonthInterval $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(MonthInterval $interval, $check_interval_type = true)
+    public function intersects(MonthInterval $interval)
     {
-        return $this->comparator->intersects($interval, $check_interval_type);
+        return $this->comparator->intersects($interval);
     }
 
     /**

@@ -175,13 +175,12 @@ class TimeInterval implements ComparableIntervalInterface
 
     /**
      * @param TimeInterval $interval
-     * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(TimeInterval $interval, $check_interval_type = true)
+    public function intersects(TimeInterval $interval)
     {
-        return $this->comparator->intersects($interval, $check_interval_type);
+        return $this->comparator->intersects($interval);
     }
 
     /**

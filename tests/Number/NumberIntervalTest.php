@@ -50,22 +50,16 @@ class NumberIntervalTest extends TestCase
     public function getIntersectIntervals()
     {
         return [
-            ['[5,10]', '[1,7]', false, true],
-            ['[5,10]', '[6,9]', false, true], // inscribed
-            ['[5,10]', '[7,15]', false, true],
-            ['[5,10]', '[1,15]', false, true], // describes
-            ['[5,10]', '[1,5]', false, true], // start = end
-            ['[5,10]', '[10,15]', false, true], // end = start
             // not intersect
-            ['[5,10]', '[1,4]', false, false],
-            ['[5,10]', '[11,15]', false, false],
+            ['[5,10]', '[1,4]', false],
+            ['[5,10]', '[11,15]', false],
             // check interval type
-            ['[5,10]', '[1,5]', true, true],
-            ['(5,10]', '[1,5]', true, false],
-            ['[5,10]', '[1,5)', true, false],
-            ['[5,10]', '[10,15]', true, true],
-            ['[5,10)', '[10,15]', true, false],
-            ['[5,10]', '(10,15]', true, false],
+            ['[5,10]', '[1,5]', true],
+            ['(5,10]', '[1,5]', false],
+            ['[5,10]', '[1,5)', false],
+            ['[5,10]', '[10,15]', true],
+            ['[5,10)', '[10,15]', false],
+            ['[5,10]', '(10,15]', false],
         ];
     }
 
@@ -74,15 +68,14 @@ class NumberIntervalTest extends TestCase
      *
      * @param string $origin_interval
      * @param string $compare_interval
-     * @param bool $check_interval_type
      * @param bool $expected
      */
-    public function testIntersect($origin_interval, $compare_interval, $check_interval_type, $expected)
+    public function testIntersect($origin_interval, $compare_interval, $expected)
     {
         $origin_interval = NumberInterval::fromString($origin_interval);
         $compare_interval = NumberInterval::fromString($compare_interval);
 
-        $this->assertEquals($expected, $origin_interval->intersects($compare_interval, $check_interval_type));
+        $this->assertEquals($expected, $origin_interval->intersects($compare_interval));
     }
 
     /**
