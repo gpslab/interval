@@ -12,7 +12,7 @@
     bootstrap="tests/bootstrap.php"
 >
     <testsuites>
-        <testsuite name="GpsLabDateBundle Test Suite">
+        <testsuite name="GpsLabInterval Test Suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
