@@ -8,6 +8,9 @@
 
 namespace GpsLab\Component\Interval;
 
+/**
+ * This interface is needed only for IntervalComparator.
+ */
 interface ComparableIntervalInterface extends IntervalInterface
 {
     /**
