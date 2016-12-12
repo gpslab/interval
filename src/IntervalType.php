@@ -228,7 +228,7 @@ final class IntervalType
      *
      * @return bool
      */
-    public function eq(IntervalType $type)
+    public function equal(IntervalType $type)
     {
         return $this->type() == $type->type();
     }
