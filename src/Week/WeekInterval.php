@@ -250,25 +250,25 @@ class WeekInterval implements ComparableIntervalInterface
     /**
      * Returns a copy of this Interval with the start point altered.
      *
-     * @param IntervalPointInterface $start
+     * @param IntervalPointInterface|WeekIntervalPoint $start
      *
      * @return self
      */
     public function withStart(IntervalPointInterface $start)
     {
-        return self::create($start->value(), $this->end(), $this->type);
+        return new self($start, $this->end, $this->type);
     }
 
     /**
      * Returns a copy of this Interval with the end point altered.
      *
-     * @param IntervalPointInterface $end
+     * @param IntervalPointInterface|WeekIntervalPoint $end
      *
      * @return self
      */
     public function withEnd(IntervalPointInterface $end)
     {
-        return self::create($this->start(), $end->value(), $this->type);
+        return new self($this->start, $end, $this->type);
     }
 
     /**
@@ -280,7 +280,7 @@ class WeekInterval implements ComparableIntervalInterface
      */
     public function withType(IntervalType $type)
     {
-        return self::create($this->start(), $this->end(), $type);
+        return new self($this->start, $this->end, $type);
     }
 
     /**
