@@ -27,12 +27,12 @@ interface IntervalInterface
     public function end();
 
     /**
-     * @return PointInterface
+     * @return IntervalPointInterface
      */
     public function startPoint();
 
     /**
-     * @return PointInterface
+     * @return IntervalPointInterface
      */
     public function endPoint();
 

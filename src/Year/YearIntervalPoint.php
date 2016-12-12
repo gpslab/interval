@@ -9,9 +9,9 @@
 
 namespace GpsLab\Component\Interval\Year;
 
-use GpsLab\Component\Interval\PointInterface;
+use GpsLab\Component\Interval\IntervalPointInterface;
 
-class YearIntervalPoint implements PointInterface
+class YearIntervalPoint implements IntervalPointInterface
 {
     /**
      * @var \DateTime

@@ -9,7 +9,7 @@
 
 namespace GpsLab\Component\Interval;
 
-interface PointInterface
+interface IntervalPointInterface
 {
     /**
      * @return mixed

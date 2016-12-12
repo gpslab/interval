@@ -10,9 +10,9 @@
 namespace GpsLab\Component\Interval\Number;
 
 use GpsLab\Component\Interval\Exception\InvalidPointTypeException;
-use GpsLab\Component\Interval\PointInterface;
+use GpsLab\Component\Interval\IntervalPointInterface;
 
-class NumberIntervalPoint implements PointInterface
+class NumberIntervalPoint implements IntervalPointInterface
 {
     /**
      * @var float|int

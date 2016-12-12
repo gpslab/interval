@@ -10,9 +10,9 @@
 namespace GpsLab\Component\Interval\IPv4;
 
 use GpsLab\Component\Interval\Exception\InvalidPointTypeException;
-use GpsLab\Component\Interval\PointInterface;
+use GpsLab\Component\Interval\IntervalPointInterface;
 
-class IPv4IntervalPoint implements PointInterface
+class IPv4IntervalPoint implements IntervalPointInterface
 {
     /**
      * @var string

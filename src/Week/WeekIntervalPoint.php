@@ -9,9 +9,9 @@
 
 namespace GpsLab\Component\Interval\Week;
 
-use GpsLab\Component\Interval\PointInterface;
+use GpsLab\Component\Interval\IntervalPointInterface;
 
-class WeekIntervalPoint implements PointInterface
+class WeekIntervalPoint implements IntervalPointInterface
 {
     /**
      * @var \DateTime
