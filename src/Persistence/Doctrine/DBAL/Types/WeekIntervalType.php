@@ -10,51 +10,15 @@
 
 namespace GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types;
 
-use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\ConversionException;
-use Doctrine\DBAL\Types\TextType;
 use GpsLab\Component\Interval\Week\WeekInterval;
-use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 
-class WeekIntervalType extends TextType
+class WeekIntervalType extends BaseType
 {
-    /**
-     * @param WeekInterval|null $value
-     * @param AbstractPlatform $platform
-     *
-     * @return null|string
-     */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
-    {
-        return $value instanceof WeekInterval ? (string)$value : null;
-    }
-
-    /**
-     * @throws ConversionException
-     *
-     * @param mixed $value
-     * @param AbstractPlatform $platform
-     *
-     * @return null|WeekInterval
-     */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
-    {
-        if ($value === null) {
-            return null;
-        }
-
-        try {
-            return WeekInterval::fromString($value);
-        } catch (InvalidIntervalFormatException $e) {
-            throw ConversionException::conversionFailed($value, $this->getName());
-        }
-    }
-
     /**
      * @return string
      */
-    public function getName()
+    protected function getClass()
     {
-        return 'WeekInterval';
+        return WeekInterval::class;
     }
 }

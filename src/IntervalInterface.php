@@ -33,6 +33,13 @@ interface IntervalInterface
     public function endPoint();
 
     /**
+     * @param string $string
+     *
+     * @return self
+     */
+    public static function fromString($string);
+
+    /**
      * @return string
      */
     public function __toString();
