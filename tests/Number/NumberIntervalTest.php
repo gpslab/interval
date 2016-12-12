@@ -11,7 +11,7 @@ namespace Pkvs\Carousel\Tests\Interval\Number;
 
 use GpsLab\Component\Interval\Number\NumberInterval;
 
-class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
+class NumberIntervalTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @return array
