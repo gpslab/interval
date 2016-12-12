@@ -172,9 +172,9 @@ class NumberInterval implements IntervalInterface
      *
      * @return NumberInterval|null
      */
-    public function intersectInterval(NumberInterval $interval)
+    public function intersection(NumberInterval $interval)
     {
-        return $this->comparator->intersectInterval($interval);
+        return $this->comparator->intersection($interval);
     }
 
     /**

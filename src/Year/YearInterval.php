@@ -176,9 +176,9 @@ class YearInterval implements IntervalInterface
      *
      * @return YearInterval|null
      */
-    public function intersectInterval(YearInterval $interval)
+    public function intersection(YearInterval $interval)
     {
-        return $this->comparator->intersectInterval($interval);
+        return $this->comparator->intersection($interval);
     }
 
     /**

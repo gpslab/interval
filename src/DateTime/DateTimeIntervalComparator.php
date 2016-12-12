@@ -77,7 +77,7 @@ class DateTimeIntervalComparator
      *
      * @return DateTimeInterval|null
      */
-    public function intersectInterval(DateTimeInterval $interval)
+    public function intersection(DateTimeInterval $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (

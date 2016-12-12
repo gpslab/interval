@@ -176,9 +176,9 @@ class MonthInterval implements IntervalInterface
      *
      * @return MonthInterval|null
      */
-    public function intersectInterval(MonthInterval $interval)
+    public function intersection(MonthInterval $interval)
     {
-        return $this->comparator->intersectInterval($interval);
+        return $this->comparator->intersection($interval);
     }
 
     /**

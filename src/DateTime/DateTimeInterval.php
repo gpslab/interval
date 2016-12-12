@@ -176,9 +176,9 @@ class DateTimeInterval implements IntervalInterface
      *
      * @return DateTimeInterval|null
      */
-    public function intersectInterval(DateTimeInterval $interval)
+    public function intersection(DateTimeInterval $interval)
     {
-        return $this->comparator->intersectInterval($interval);
+        return $this->comparator->intersection($interval);
     }
 
     /**

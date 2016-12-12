@@ -176,9 +176,9 @@ class WeekInterval implements IntervalInterface
      *
      * @return WeekInterval|null
      */
-    public function intersectInterval(WeekInterval $interval)
+    public function intersection(WeekInterval $interval)
     {
-        return $this->comparator->intersectInterval($interval);
+        return $this->comparator->intersection($interval);
     }
 
     /**

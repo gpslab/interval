@@ -124,6 +124,6 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
         $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
         $comparator = new NumberIntervalComparator($origin_interval);
 
-        $this->assertEquals($expected_interval, $comparator->intersectInterval($compare_interval));
+        $this->assertEquals($expected_interval, $comparator->intersection($compare_interval));
     }
 }

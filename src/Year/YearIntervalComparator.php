@@ -77,7 +77,7 @@ class YearIntervalComparator
      *
      * @return YearInterval|null
      */
-    public function intersectInterval(YearInterval $interval)
+    public function intersection(YearInterval $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (

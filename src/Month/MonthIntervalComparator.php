@@ -77,7 +77,7 @@ class MonthIntervalComparator
      *
      * @return MonthInterval|null
      */
-    public function intersectInterval(MonthInterval $interval)
+    public function intersection(MonthInterval $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (

@@ -176,9 +176,9 @@ class TimeInterval implements IntervalInterface
      *
      * @return TimeInterval|null
      */
-    public function intersectInterval(TimeInterval $interval)
+    public function intersection(TimeInterval $interval)
     {
-        return $this->comparator->intersectInterval($interval);
+        return $this->comparator->intersection($interval);
     }
 
     /**

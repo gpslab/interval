@@ -77,7 +77,7 @@ class WeekIntervalComparator
      *
      * @return WeekInterval|null
      */
-    public function intersectInterval(WeekInterval $interval)
+    public function intersection(WeekInterval $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (

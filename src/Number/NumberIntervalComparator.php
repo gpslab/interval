@@ -77,7 +77,7 @@ class NumberIntervalComparator
      *
      * @return NumberInterval|null
      */
-    public function intersectInterval(NumberInterval $interval)
+    public function intersection(NumberInterval $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (

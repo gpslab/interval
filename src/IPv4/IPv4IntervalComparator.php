@@ -77,7 +77,7 @@ class IPv4IntervalComparator
      *
      * @return IPv4Interval|null
      */
-    public function intersectInterval(IPv4Interval $interval)
+    public function intersection(IPv4Interval $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (

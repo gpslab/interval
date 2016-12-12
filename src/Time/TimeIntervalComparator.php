@@ -77,7 +77,7 @@ class TimeIntervalComparator
      *
      * @return TimeInterval|null
      */
-    public function intersectInterval(TimeInterval $interval)
+    public function intersection(TimeInterval $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (
