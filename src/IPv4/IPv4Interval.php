@@ -25,9 +25,9 @@ class IPv4Interval implements ComparableIntervalInterface
     const REGEXP = '/^
         (?:\(|\[)                                    # start type char
         \s*
-        (?<start>\d{1-3}\.\d{1-3}\.\d{1-3}\.\d{1-3}) # start point
+        (?<start>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) # start point
         \s*,\s*                                      # separator
-        (?<end>\d{1-3}\.\d{1-3}\.\d{1-3}\.\d{1-3})   # end point
+        (?<end>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})   # end point
         \s*
         (?:\)|\])                                    # end type char
     $/x';
