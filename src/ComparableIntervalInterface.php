@@ -20,16 +20,6 @@ interface ComparableIntervalInterface extends IntervalInterface
     public function type();
 
     /**
-     * @return IntervalPointInterface
-     */
-    public function startPoint();
-
-    /**
-     * @return IntervalPointInterface
-     */
-    public function endPoint();
-
-    /**
      * Returns a copy of this Interval with the start point altered.
      *
      * @param IntervalPointInterface $start

@@ -23,6 +23,16 @@ interface IntervalInterface
     public function end();
 
     /**
+     * @return IntervalPointInterface
+     */
+    public function startPoint();
+
+    /**
+     * @return IntervalPointInterface
+     */
+    public function endPoint();
+
+    /**
      * @return string
      */
     public function __toString();
