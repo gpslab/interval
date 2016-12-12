@@ -28,20 +28,20 @@ interface ComparableIntervalInterface extends IntervalInterface
     /**
      * Returns a copy of this Interval with the start point altered.
      *
-     * @param mixed $start
+     * @param IntervalPointInterface $start
      *
      * @return self
      */
-    public function withStart($start);
+    public function withStart(IntervalPointInterface $start);
 
     /**
      * Returns a copy of this Interval with the end point altered.
      *
-     * @param mixed $end
+     * @param IntervalPointInterface $end
      *
      * @return self
      */
-    public function withEnd($end);
+    public function withEnd(IntervalPointInterface $end);
 
     /**
      * Returns a copy of this Interval with the interval type altered.

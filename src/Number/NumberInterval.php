@@ -13,6 +13,7 @@ use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
 use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 use GpsLab\Component\Interval\IntervalComparator;
 use GpsLab\Component\Interval\ComparableIntervalInterface;
+use GpsLab\Component\Interval\IntervalPointInterface;
 use GpsLab\Component\Interval\IntervalType;
 
 class NumberInterval implements ComparableIntervalInterface
@@ -245,25 +246,25 @@ class NumberInterval implements ComparableIntervalInterface
     /**
      * Returns a copy of this Interval with the start point altered.
      *
-     * @param int|float $start
+     * @param IntervalPointInterface $start
      *
      * @return self
      */
-    public function withStart($start)
+    public function withStart(IntervalPointInterface $start)
     {
-        return self::create($start, $this->end(), $this->type);
+        return self::create($start->value(), $this->end(), $this->type);
     }
 
     /**
      * Returns a copy of this Interval with the end point altered.
      *
-     * @param int|float $end
+     * @param IntervalPointInterface $end
      *
      * @return self
      */
-    public function withEnd($end)
+    public function withEnd(IntervalPointInterface $end)
     {
-        return self::create($this->start(), $end, $this->type);
+        return self::create($this->start(), $end->value(), $this->type);
     }
 
     /**

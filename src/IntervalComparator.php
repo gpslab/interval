@@ -114,8 +114,8 @@ class IntervalComparator
         }
 
         return $this->interval
-            ->withStart($start->value())
-            ->withEnd($end->value())
+            ->withStart($start)
+            ->withEnd($end)
             ->withType(IntervalType::create($type));
     }
 
