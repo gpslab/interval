@@ -9,9 +9,9 @@
 
 namespace GpsLab\Component\Interval\Week;
 
-use GpsLab\Component\Interval\IntervalPointInterface;
+use GpsLab\Component\Interval\BaseIntervalPoint;
 
-class WeekIntervalPoint implements IntervalPointInterface
+class WeekIntervalPoint extends BaseIntervalPoint
 {
     /**
      * @var \DateTime
@@ -56,66 +56,6 @@ class WeekIntervalPoint implements IntervalPointInterface
     public function value()
     {
         return clone $this->week;
-    }
-
-    /**
-     * @param WeekIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function eq(WeekIntervalPoint $point)
-    {
-        return $this->value() == $point->value();
-    }
-
-    /**
-     * @param WeekIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function neq(WeekIntervalPoint $point)
-    {
-        return $this->value() != $point->value();
-    }
-
-    /**
-     * @param WeekIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lt(WeekIntervalPoint $point)
-    {
-        return $this->value() < $point->value();
-    }
-
-    /**
-     * @param WeekIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lte(WeekIntervalPoint $point)
-    {
-        return $this->value() <= $point->value();
-    }
-
-    /**
-     * @param WeekIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gt(WeekIntervalPoint $point)
-    {
-        return $this->value() > $point->value();
-    }
-
-    /**
-     * @param WeekIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gte(WeekIntervalPoint $point)
-    {
-        return $this->value() >= $point->value();
     }
 
     /**

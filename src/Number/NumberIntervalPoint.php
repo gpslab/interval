@@ -10,9 +10,9 @@
 namespace GpsLab\Component\Interval\Number;
 
 use GpsLab\Component\Interval\Exception\InvalidPointTypeException;
-use GpsLab\Component\Interval\IntervalPointInterface;
+use GpsLab\Component\Interval\BaseIntervalPoint;
 
-class NumberIntervalPoint implements IntervalPointInterface
+class NumberIntervalPoint extends BaseIntervalPoint
 {
     /**
      * @var float|int
@@ -37,66 +37,6 @@ class NumberIntervalPoint implements IntervalPointInterface
     public function value()
     {
         return $this->number;
-    }
-
-    /**
-     * @param NumberIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function eq(NumberIntervalPoint $point)
-    {
-        return $this->value() == $point->value();
-    }
-
-    /**
-     * @param NumberIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function neq(NumberIntervalPoint $point)
-    {
-        return $this->value() != $point->value();
-    }
-
-    /**
-     * @param NumberIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lt(NumberIntervalPoint $point)
-    {
-        return $this->value() < $point->value();
-    }
-
-    /**
-     * @param NumberIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lte(NumberIntervalPoint $point)
-    {
-        return $this->value() <= $point->value();
-    }
-
-    /**
-     * @param NumberIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gt(NumberIntervalPoint $point)
-    {
-        return $this->value() > $point->value();
-    }
-
-    /**
-     * @param NumberIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gte(NumberIntervalPoint $point)
-    {
-        return $this->value() >= $point->value();
     }
 
     /**

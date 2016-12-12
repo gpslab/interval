@@ -9,9 +9,9 @@
 
 namespace GpsLab\Component\Interval\Time;
 
-use GpsLab\Component\Interval\IntervalPointInterface;
+use GpsLab\Component\Interval\BaseIntervalPoint;
 
-class TimeIntervalPoint implements IntervalPointInterface
+class TimeIntervalPoint extends BaseIntervalPoint
 {
     /**
      * @var \DateTime
@@ -33,66 +33,6 @@ class TimeIntervalPoint implements IntervalPointInterface
     public function value()
     {
         return clone $this->date;
-    }
-
-    /**
-     * @param TimeIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function eq(TimeIntervalPoint $point)
-    {
-        return $this->value() == $point->value();
-    }
-
-    /**
-     * @param TimeIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function neq(TimeIntervalPoint $point)
-    {
-        return $this->value() != $point->value();
-    }
-
-    /**
-     * @param TimeIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lt(TimeIntervalPoint $point)
-    {
-        return $this->value() < $point->value();
-    }
-
-    /**
-     * @param TimeIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lte(TimeIntervalPoint $point)
-    {
-        return $this->value() <= $point->value();
-    }
-
-    /**
-     * @param TimeIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gt(TimeIntervalPoint $point)
-    {
-        return $this->value() > $point->value();
-    }
-
-    /**
-     * @param TimeIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gte(TimeIntervalPoint $point)
-    {
-        return $this->value() >= $point->value();
     }
 
     /**

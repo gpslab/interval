@@ -7,31 +7,29 @@
  * @license   http://opensource.org/licenses/MIT
  */
 
-namespace GpsLab\Component\Interval\Date;
+namespace GpsLab\Component\Interval;
 
-use GpsLab\Component\Interval\IntervalType;
-
-class DateIntervalComparator
+class IntervalComparator
 {
     /**
-     * @var DateInterval
+     * @var IntervalInterface
      */
     private $interval;
 
     /**
-     * @param DateInterval $interval
+     * @param IntervalInterface $interval
      */
-    public function __construct(DateInterval $interval)
+    public function __construct(IntervalInterface $interval)
     {
         $this->interval = $interval;
     }
 
     /**
-     * @param DateIntervalPoint $point
+     * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function contains(DateIntervalPoint $point)
+    public function contains(IntervalPointInterface $point)
     {
         if ($this->interval->startPoint()->eq($point)) {
             return !$this->interval->type()->startExcluded();
@@ -45,12 +43,12 @@ class DateIntervalComparator
     }
 
     /**
-     * @param DateInterval $interval
+     * @param IntervalInterface $interval
      * @param bool $check_interval_type
      *
      * @return bool
      */
-    public function intersects(DateInterval $interval, $check_interval_type = true)
+    public function intersects(IntervalInterface $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||
@@ -73,11 +71,11 @@ class DateIntervalComparator
     }
 
     /**
-     * @param DateInterval $interval
+     * @param IntervalInterface $interval
      *
-     * @return DateInterval|null
+     * @return IntervalInterface|null
      */
-    public function intersection(DateInterval $interval)
+    public function intersection(IntervalInterface $interval)
     {
         // intervals is not intersect or impossible create interval from one point
         if (
@@ -85,7 +83,7 @@ class DateIntervalComparator
             $this->interval->endPoint()->lte($interval->startPoint())
         ) {
             // ignore closed intervals:
-            // [a, b] | [b, c] = [b, b] = (b-1, b+1)
+            // [a, b] | [b, c] = [b, b]
             return null;
         }
 
@@ -115,17 +113,20 @@ class DateIntervalComparator
             }
         }
 
-        return DateInterval::create($start->value(), $end->value(), IntervalType::create($type));
+        return $this->interval
+            ->withStart($start->value())
+            ->withEnd($end->value())
+            ->withType(IntervalType::create($type));
     }
 
     /**
      * The point is before the interval
      *
-     * @param DateIntervalPoint $point
+     * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function before(DateIntervalPoint $point)
+    public function before(IntervalPointInterface $point)
     {
         return $this->interval->startPoint()->gt($point);
     }
@@ -133,11 +134,11 @@ class DateIntervalComparator
     /**
      * The point is after the interval
      *
-     * @param DateIntervalPoint $point
+     * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function after(DateIntervalPoint $point)
+    public function after(IntervalPointInterface $point)
     {
         return $this->interval->endPoint()->lt($point);
     }

@@ -11,6 +11,7 @@ namespace GpsLab\Component\Interval\Week;
 
 use GpsLab\Component\Interval\Exception\IncorrectIntervalException;
 use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
+use GpsLab\Component\Interval\IntervalComparator;
 use GpsLab\Component\Interval\IntervalInterface;
 use GpsLab\Component\Interval\IntervalType;
 
@@ -35,7 +36,7 @@ class WeekInterval implements IntervalInterface
     private $type;
 
     /**
-     * @var WeekIntervalComparator
+     * @var IntervalComparator
      */
     private $comparator;
 
@@ -63,7 +64,7 @@ class WeekInterval implements IntervalInterface
         $this->type = $type;
         $this->start = $start;
         $this->end = $end;
-        $this->comparator = new WeekIntervalComparator($this);
+        $this->comparator = new IntervalComparator($this);
     }
 
     /**
@@ -243,6 +244,42 @@ class WeekInterval implements IntervalInterface
     public function endPoint()
     {
         return $this->end;
+    }
+
+    /**
+     * Returns a copy of this Interval with the start point altered.
+     *
+     * @param \DateTime $start
+     *
+     * @return self
+     */
+    public function withStart($start)
+    {
+        return self::create($start, $this->end(), $this->type);
+    }
+
+    /**
+     * Returns a copy of this Interval with the end point altered.
+     *
+     * @param \DateTime $end
+     *
+     * @return self
+     */
+    public function withEnd($end)
+    {
+        return self::create($this->start(), $end, $this->type);
+    }
+
+    /**
+     * Returns a copy of this Interval with the interval type altered.
+     *
+     * @param IntervalType $type
+     *
+     * @return self
+     */
+    public function withType(IntervalType $type)
+    {
+        return self::create($this->start(), $this->end(), $type);
     }
 
     /**

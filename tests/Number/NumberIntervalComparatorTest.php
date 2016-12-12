@@ -10,8 +10,6 @@
 namespace Pkvs\Carousel\Tests\Domain\Interval\Number;
 
 use GpsLab\Component\Interval\Number\NumberInterval;
-use GpsLab\Component\Interval\Number\NumberIntervalComparator;
-use GpsLab\Component\Interval\Number\NumberIntervalPoint;
 
 class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -41,9 +39,8 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
     public function testContains($interval, $point, $expected)
     {
         $interval = NumberInterval::fromString($interval);
-        $comparator = new NumberIntervalComparator($interval);
 
-        $this->assertEquals($expected, $comparator->contains(new NumberIntervalPoint($point)));
+        $this->assertEquals($expected, $interval->contains($point));
     }
 
     /**
@@ -83,9 +80,8 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
     {
         $origin_interval = NumberInterval::fromString($origin_interval);
         $compare_interval = NumberInterval::fromString($compare_interval);
-        $comparator = new NumberIntervalComparator($origin_interval);
 
-        $this->assertEquals($expected, $comparator->intersects($compare_interval, $check_interval_type));
+        $this->assertEquals($expected, $origin_interval->intersects($compare_interval, $check_interval_type));
     }
 
     /**
@@ -122,8 +118,7 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
         $origin_interval = NumberInterval::fromString($origin_interval);
         $compare_interval = NumberInterval::fromString($compare_interval);
         $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
-        $comparator = new NumberIntervalComparator($origin_interval);
 
-        $this->assertEquals($expected_interval, $comparator->intersection($compare_interval));
+        $this->assertEquals($expected_interval, $origin_interval->intersection($compare_interval));
     }
 }

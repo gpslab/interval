@@ -9,9 +9,9 @@
 
 namespace GpsLab\Component\Interval\Year;
 
-use GpsLab\Component\Interval\IntervalPointInterface;
+use GpsLab\Component\Interval\BaseIntervalPoint;
 
-class YearIntervalPoint implements IntervalPointInterface
+class YearIntervalPoint extends BaseIntervalPoint
 {
     /**
      * @var \DateTime
@@ -33,66 +33,6 @@ class YearIntervalPoint implements IntervalPointInterface
     public function value()
     {
         return clone $this->year;
-    }
-
-    /**
-     * @param YearIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function eq(YearIntervalPoint $point)
-    {
-        return $this->value() == $point->value();
-    }
-
-    /**
-     * @param YearIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function neq(YearIntervalPoint $point)
-    {
-        return $this->value() != $point->value();
-    }
-
-    /**
-     * @param YearIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lt(YearIntervalPoint $point)
-    {
-        return $this->value() < $point->value();
-    }
-
-    /**
-     * @param YearIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lte(YearIntervalPoint $point)
-    {
-        return $this->value() <= $point->value();
-    }
-
-    /**
-     * @param YearIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gt(YearIntervalPoint $point)
-    {
-        return $this->value() > $point->value();
-    }
-
-    /**
-     * @param YearIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gte(YearIntervalPoint $point)
-    {
-        return $this->value() >= $point->value();
     }
 
     /**

@@ -10,9 +10,9 @@
 namespace GpsLab\Component\Interval\IPv4;
 
 use GpsLab\Component\Interval\Exception\InvalidPointTypeException;
-use GpsLab\Component\Interval\IntervalPointInterface;
+use GpsLab\Component\Interval\BaseIntervalPoint;
 
-class IPv4IntervalPoint implements IntervalPointInterface
+class IPv4IntervalPoint extends BaseIntervalPoint
 {
     /**
      * @var string
@@ -43,66 +43,6 @@ class IPv4IntervalPoint implements IntervalPointInterface
     public function value()
     {
         return $this->long;
-    }
-
-    /**
-     * @param IPv4IntervalPoint $point
-     *
-     * @return bool
-     */
-    public function eq(IPv4IntervalPoint $point)
-    {
-        return $this->value() == $point->value();
-    }
-
-    /**
-     * @param IPv4IntervalPoint $point
-     *
-     * @return bool
-     */
-    public function neq(IPv4IntervalPoint $point)
-    {
-        return $this->value() != $point->value();
-    }
-
-    /**
-     * @param IPv4IntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lt(IPv4IntervalPoint $point)
-    {
-        return $this->value() < $point->value();
-    }
-
-    /**
-     * @param IPv4IntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lte(IPv4IntervalPoint $point)
-    {
-        return $this->value() <= $point->value();
-    }
-
-    /**
-     * @param IPv4IntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gt(IPv4IntervalPoint $point)
-    {
-        return $this->value() > $point->value();
-    }
-
-    /**
-     * @param IPv4IntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gte(IPv4IntervalPoint $point)
-    {
-        return $this->value() >= $point->value();
     }
 
     /**

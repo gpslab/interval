@@ -9,9 +9,9 @@
 
 namespace GpsLab\Component\Interval\Month;
 
-use GpsLab\Component\Interval\IntervalPointInterface;
+use GpsLab\Component\Interval\BaseIntervalPoint;
 
-class MonthIntervalPoint implements IntervalPointInterface
+class MonthIntervalPoint extends BaseIntervalPoint
 {
     /**
      * @var \DateTime
@@ -33,66 +33,6 @@ class MonthIntervalPoint implements IntervalPointInterface
     public function value()
     {
         return clone $this->month;
-    }
-
-    /**
-     * @param MonthIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function eq(MonthIntervalPoint $point)
-    {
-        return $this->value() == $point->value();
-    }
-
-    /**
-     * @param MonthIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function neq(MonthIntervalPoint $point)
-    {
-        return $this->value() != $point->value();
-    }
-
-    /**
-     * @param MonthIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lt(MonthIntervalPoint $point)
-    {
-        return $this->value() < $point->value();
-    }
-
-    /**
-     * @param MonthIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function lte(MonthIntervalPoint $point)
-    {
-        return $this->value() <= $point->value();
-    }
-
-    /**
-     * @param MonthIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gt(MonthIntervalPoint $point)
-    {
-        return $this->value() > $point->value();
-    }
-
-    /**
-     * @param MonthIntervalPoint $point
-     *
-     * @return bool
-     */
-    public function gte(MonthIntervalPoint $point)
-    {
-        return $this->value() >= $point->value();
     }
 
     /**
