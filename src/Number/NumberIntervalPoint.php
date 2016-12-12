@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * GpsLab component.
  *
@@ -44,6 +45,6 @@ class NumberIntervalPoint extends BaseIntervalPoint
      */
     public function __toString()
     {
-        return (string)$this->value();
+        return (string) $this->value();
     }
 }
