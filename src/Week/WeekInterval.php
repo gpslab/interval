@@ -166,9 +166,9 @@ class WeekInterval implements IntervalInterface
      *
      * @return bool
      */
-    public function intersect(WeekInterval $interval, $check_interval_type = true)
+    public function intersects(WeekInterval $interval, $check_interval_type = true)
     {
-        return $this->comparator->intersect($interval, $check_interval_type);
+        return $this->comparator->intersects($interval, $check_interval_type);
     }
 
     /**

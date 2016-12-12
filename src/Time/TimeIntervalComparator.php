@@ -50,7 +50,7 @@ class TimeIntervalComparator
      *
      * @return bool
      */
-    public function intersect(TimeInterval $interval, $check_interval_type = true)
+    public function intersects(TimeInterval $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||

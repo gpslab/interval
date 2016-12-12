@@ -50,7 +50,7 @@ class NumberIntervalComparator
      *
      * @return bool
      */
-    public function intersect(NumberInterval $interval, $check_interval_type = true)
+    public function intersects(NumberInterval $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||

@@ -50,7 +50,7 @@ class MonthIntervalComparator
      *
      * @return bool
      */
-    public function intersect(MonthInterval $interval, $check_interval_type = true)
+    public function intersects(MonthInterval $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||

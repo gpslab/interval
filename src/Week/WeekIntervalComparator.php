@@ -50,7 +50,7 @@ class WeekIntervalComparator
      *
      * @return bool
      */
-    public function intersect(WeekInterval $interval, $check_interval_type = true)
+    public function intersects(WeekInterval $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||

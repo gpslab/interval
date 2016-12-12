@@ -85,7 +85,7 @@ class NumberIntervalComparatorTest extends \PHPUnit_Framework_TestCase
         $compare_interval = NumberInterval::fromString($compare_interval);
         $comparator = new NumberIntervalComparator($origin_interval);
 
-        $this->assertEquals($expected, $comparator->intersect($compare_interval, $check_interval_type));
+        $this->assertEquals($expected, $comparator->intersects($compare_interval, $check_interval_type));
     }
 
     /**

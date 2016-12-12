@@ -166,9 +166,9 @@ class MonthInterval implements IntervalInterface
      *
      * @return bool
      */
-    public function intersect(MonthInterval $interval, $check_interval_type = true)
+    public function intersects(MonthInterval $interval, $check_interval_type = true)
     {
-        return $this->comparator->intersect($interval, $check_interval_type);
+        return $this->comparator->intersects($interval, $check_interval_type);
     }
 
     /**

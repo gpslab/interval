@@ -50,7 +50,7 @@ class IPv4IntervalComparator
      *
      * @return bool
      */
-    public function intersect(IPv4Interval $interval, $check_interval_type = true)
+    public function intersects(IPv4Interval $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||

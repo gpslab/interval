@@ -50,7 +50,7 @@ class DateIntervalComparator
      *
      * @return bool
      */
-    public function intersect(DateInterval $interval, $check_interval_type = true)
+    public function intersects(DateInterval $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||

@@ -50,7 +50,7 @@ class YearIntervalComparator
      *
      * @return bool
      */
-    public function intersect(YearInterval $interval, $check_interval_type = true)
+    public function intersects(YearInterval $interval, $check_interval_type = true)
     {
         if (
             $this->interval->startPoint()->gt($interval->endPoint()) ||
