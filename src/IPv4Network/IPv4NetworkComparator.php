@@ -29,6 +29,8 @@ class IPv4NetworkComparator
     }
 
     /**
+     * Checks if this network is equal to the specified network.
+     *
      * @param IPv4Network $interval
      *
      * @return bool
@@ -42,6 +44,8 @@ class IPv4NetworkComparator
     }
 
     /**
+     * Does this network contain the specified IP.
+     *
      * @param IPv4NetworkPoint $point
      *
      * @return bool
@@ -52,6 +56,8 @@ class IPv4NetworkComparator
     }
 
     /**
+     * Does this network intersect the specified network.
+     *
      * @param IPv4Network $network
      *
      * @return bool
@@ -66,5 +72,20 @@ class IPv4NetworkComparator
         }
 
         return true;
+    }
+
+    /**
+     * Does this network abut with the network specified.
+     *
+     * @param IPv4Network $network
+     *
+     * @return bool
+     */
+    public function abuts(IPv4Network $network)
+    {
+        return (
+            $network->endPoint()->eq($this->network->startPoint()) ||
+            $this->network->endPoint()->eq($network->startPoint())
+        );
     }
 }

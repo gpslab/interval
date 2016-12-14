@@ -150,6 +150,18 @@ class IPv4Network implements IntervalInterface
     }
 
     /**
+     * Does this network abut with the network specified.
+     *
+     * @param IPv4Network $network
+     *
+     * @return bool
+     */
+    public function abuts(IPv4Network $network)
+    {
+        return $this->comparator->abuts($network);
+    }
+
+    /**
      * @return string
      */
     public function start()
