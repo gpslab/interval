@@ -37,11 +37,11 @@ class IntervalComparator
      */
     public function equal(ComparableIntervalInterface $interval)
     {
-        return (
+        return
             $this->interval->startPoint()->eq($interval->startPoint()) &&
             $this->interval->endPoint()->eq($interval->endPoint()) &&
             $this->interval->type()->equal($interval->type())
-        );
+        ;
     }
 
     /**
@@ -237,10 +237,10 @@ class IntervalComparator
      */
     public function abuts(ComparableIntervalInterface $interval)
     {
-        return (
+        return
             $interval->endPoint()->eq($this->interval->startPoint()) ||
             $this->interval->endPoint()->eq($interval->startPoint())
-        );
+        ;
     }
 
     /**
