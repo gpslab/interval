@@ -286,6 +286,34 @@ class WeekInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param \DateInterval|null $step
+     *
+     * @return \Generator
+     */
+    public function iterate(\DateInterval $step = null)
+    {
+        $step = $step ?: new \DateInterval('P1W');
+
+        $date = $this->start();
+        while ($date < $this->end()) {
+            yield $date;
+            $date->add($step);
+        }
+    }
+
+    /**
+     * @param \DateInterval|null $step
+     *
+     * @return \DatePeriod
+     */
+    public function period(\DateInterval $step = null)
+    {
+        $step = $step ?: new \DateInterval('P1W');
+
+        return new \DatePeriod($this->start(), $step, $this->end());
+    }
+
+    /**
      * @return IntervalType
      */
     public function type()

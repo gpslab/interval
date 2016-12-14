@@ -285,6 +285,34 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param \DateInterval|null $step
+     *
+     * @return \Generator
+     */
+    public function iterate(\DateInterval $step = null)
+    {
+        $step = $step ?: new \DateInterval('P1D');
+
+        $date = $this->start();
+        while ($date < $this->end()) {
+            yield $date;
+            $date->add($step);
+        }
+    }
+
+    /**
+     * @param \DateInterval|null $step
+     *
+     * @return \DatePeriod
+     */
+    public function period(\DateInterval $step = null)
+    {
+        $step = $step ?: new \DateInterval('P1D');
+
+        return new \DatePeriod($this->start(), $step, $this->end());
+    }
+
+    /**
      * @return IntervalType
      */
     public function type()
