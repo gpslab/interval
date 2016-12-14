@@ -39,7 +39,7 @@ class IPv4IntervalPoint extends BaseIntervalPoint
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function value()
     {
