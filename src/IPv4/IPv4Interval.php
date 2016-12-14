@@ -282,6 +282,22 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
+     * @param int $step
+     *
+     * @return \Generator
+     */
+    public function iterate($step = 1)
+    {
+        $end = $this->endPoint()->value();
+        $ip = $this->startPoint()->value();
+
+        while ($ip < $end) {
+            yield long2ip($ip);
+            $ip += $step;
+        }
+    }
+
+    /**
      * @return IntervalType
      */
     public function type()
