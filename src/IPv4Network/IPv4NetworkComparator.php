@@ -37,10 +37,10 @@ class IPv4NetworkComparator
      */
     public function equal(IPv4Network $interval)
     {
-        return (
+        return
             $this->network->startPoint()->eq($interval->startPoint()) &&
             $this->network->mask()->equal($interval->mask())
-        );
+        ;
     }
 
     /**
@@ -83,9 +83,9 @@ class IPv4NetworkComparator
      */
     public function abuts(IPv4Network $network)
     {
-        return (
+        return
             $network->endPoint()->eq($this->network->startPoint()) ||
             $this->network->endPoint()->eq($network->startPoint())
-        );
+        ;
     }
 }

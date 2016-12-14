@@ -28,7 +28,7 @@ abstract class BaseType extends TextType
     {
         $class = $this->getIntervalClass();
 
-        return $value instanceof $class ? (string)$value : null;
+        return $value instanceof $class ? (string) $value : null;
     }
 
     /**

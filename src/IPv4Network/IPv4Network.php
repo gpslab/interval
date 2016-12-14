@@ -230,6 +230,6 @@ class IPv4Network implements IntervalInterface
      */
     public function __toString()
     {
-        return $this->start . '/' . $this->mask->cidr();
+        return $this->start.'/'.$this->mask->cidr();
     }
 }

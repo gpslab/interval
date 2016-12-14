@@ -44,14 +44,14 @@ class IPv4NetworkTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($start, $network->start());
         $this->assertInstanceOf(IPv4NetworkPoint::class, $network->startPoint());
-        $this->assertEquals($start, (string)$network->startPoint());
+        $this->assertEquals($start, (string) $network->startPoint());
 
         $this->assertEquals($end, $network->end());
         $this->assertInstanceOf(IPv4NetworkPoint::class, $network->endPoint());
-        $this->assertEquals($end, (string)$network->endPoint());
+        $this->assertEquals($end, (string) $network->endPoint());
 
         $this->assertInstanceOf(IPv4NetworkMask::class, $network->mask());
-        $this->assertEquals($mask, (string)$network->mask());
+        $this->assertEquals($mask, (string) $network->mask());
         $this->assertEquals($cidr, $network->cidr());
     }
 
@@ -71,7 +71,7 @@ class IPv4NetworkTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($start, $network->start());
         $this->assertEquals($end, $network->end());
-        $this->assertEquals($mask, (string)$network->mask());
+        $this->assertEquals($mask, (string) $network->mask());
         $this->assertEquals($cidr, $network->cidr());
     }
 
@@ -91,7 +91,7 @@ class IPv4NetworkTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($start, $network->start());
         $this->assertEquals($end, $network->end());
-        $this->assertEquals($mask, (string)$network->mask());
+        $this->assertEquals($mask, (string) $network->mask());
         $this->assertEquals($cidr, $network->cidr());
     }
 
@@ -131,7 +131,7 @@ class IPv4NetworkTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($start, $network->start());
         $this->assertEquals($end, $network->end());
-        $this->assertEquals($mask, (string)$network->mask());
+        $this->assertEquals($mask, (string) $network->mask());
         $this->assertEquals($cidr, $network->cidr());
     }
 
