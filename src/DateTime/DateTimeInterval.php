@@ -185,11 +185,21 @@ class DateTimeInterval implements ComparableIntervalInterface
     /**
      * @param DateTimeInterval $interval
      *
-     * @return DateTimeInterval|null
+     * @return self|null
      */
     public function intersection(DateTimeInterval $interval)
     {
         return $this->comparator->intersection($interval);
+    }
+
+    /**
+     * @param DateTimeInterval $interval
+     *
+     * @return self
+     */
+    public function cover(DateTimeInterval $interval)
+    {
+        return $this->comparator->cover($interval);
     }
 
     /**

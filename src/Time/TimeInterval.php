@@ -186,11 +186,21 @@ class TimeInterval implements ComparableIntervalInterface
     /**
      * @param TimeInterval $interval
      *
-     * @return TimeInterval|null
+     * @return self|null
      */
     public function intersection(TimeInterval $interval)
     {
         return $this->comparator->intersection($interval);
+    }
+
+    /**
+     * @param TimeInterval $interval
+     *
+     * @return self
+     */
+    public function cover(TimeInterval $interval)
+    {
+        return $this->comparator->cover($interval);
     }
 
     /**

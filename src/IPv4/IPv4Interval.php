@@ -182,11 +182,21 @@ class IPv4Interval implements ComparableIntervalInterface
     /**
      * @param IPv4Interval $interval
      *
-     * @return IPv4Interval|null
+     * @return self|null
      */
     public function intersection(IPv4Interval $interval)
     {
         return $this->comparator->intersection($interval);
+    }
+
+    /**
+     * @param IPv4Interval $interval
+     *
+     * @return self
+     */
+    public function cover(IPv4Interval $interval)
+    {
+        return $this->comparator->cover($interval);
     }
 
     /**

@@ -182,11 +182,21 @@ class NumberInterval implements ComparableIntervalInterface
     /**
      * @param NumberInterval $interval
      *
-     * @return NumberInterval|null
+     * @return self|null
      */
     public function intersection(NumberInterval $interval)
     {
         return $this->comparator->intersection($interval);
+    }
+
+    /**
+     * @param NumberInterval $interval
+     *
+     * @return self
+     */
+    public function cover(NumberInterval $interval)
+    {
+        return $this->comparator->cover($interval);
     }
 
     /**

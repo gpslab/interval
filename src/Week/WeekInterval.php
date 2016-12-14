@@ -186,11 +186,21 @@ class WeekInterval implements ComparableIntervalInterface
     /**
      * @param WeekInterval $interval
      *
-     * @return WeekInterval|null
+     * @return self|null
      */
     public function intersection(WeekInterval $interval)
     {
         return $this->comparator->intersection($interval);
+    }
+
+    /**
+     * @param WeekInterval $interval
+     *
+     * @return self
+     */
+    public function cover(WeekInterval $interval)
+    {
+        return $this->comparator->cover($interval);
     }
 
     /**

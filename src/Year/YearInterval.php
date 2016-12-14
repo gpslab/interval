@@ -186,11 +186,21 @@ class YearInterval implements ComparableIntervalInterface
     /**
      * @param YearInterval $interval
      *
-     * @return YearInterval|null
+     * @return self|null
      */
     public function intersection(YearInterval $interval)
     {
         return $this->comparator->intersection($interval);
+    }
+
+    /**
+     * @param YearInterval $interval
+     *
+     * @return self
+     */
+    public function cover(YearInterval $interval)
+    {
+        return $this->comparator->cover($interval);
     }
 
     /**

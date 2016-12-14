@@ -135,6 +135,44 @@ class IntervalComparator
     }
 
     /**
+     * @param ComparableIntervalInterface $interval
+     *
+     * @return ComparableIntervalInterface
+     */
+    public function cover(ComparableIntervalInterface $interval)
+    {
+        $type = IntervalType::TYPE_CLOSED;
+        if ($this->interval->startPoint()->lt($interval->startPoint())) {
+            $start = $this->interval->startPoint();
+            if ($interval->type()->startExcluded()) {
+                $type |= IntervalType::TYPE_START_EXCLUDED;
+            }
+        } else {
+            $start = $interval->startPoint();
+            if ($this->interval->type()->startExcluded()) {
+                $type |= IntervalType::TYPE_START_EXCLUDED;
+            }
+        }
+
+        if ($this->interval->endPoint()->gt($interval->endPoint())) {
+            $end = $this->interval->endPoint();
+            if ($interval->type()->endExcluded()) {
+                $type |= IntervalType::TYPE_END_EXCLUDED;
+            }
+        } else {
+            $end = $interval->endPoint();
+            if ($this->interval->type()->endExcluded()) {
+                $type |= IntervalType::TYPE_END_EXCLUDED;
+            }
+        }
+
+        return $this->interval
+            ->withStart($start)
+            ->withEnd($end)
+            ->withType(IntervalType::create($type));
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param IntervalPointInterface $point

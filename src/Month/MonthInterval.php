@@ -186,11 +186,21 @@ class MonthInterval implements ComparableIntervalInterface
     /**
      * @param MonthInterval $interval
      *
-     * @return MonthInterval|null
+     * @return self|null
      */
     public function intersection(MonthInterval $interval)
     {
         return $this->comparator->intersection($interval);
+    }
+
+    /**
+     * @param MonthInterval $interval
+     *
+     * @return self
+     */
+    public function cover(MonthInterval $interval)
+    {
+        return $this->comparator->cover($interval);
     }
 
     /**
