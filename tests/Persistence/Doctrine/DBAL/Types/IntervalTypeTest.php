@@ -16,12 +16,14 @@ use GpsLab\Component\Interval\Date\DateInterval;
 use GpsLab\Component\Interval\DateTime\DateTimeInterval;
 use GpsLab\Component\Interval\IntervalInterface;
 use GpsLab\Component\Interval\IPv4\IPv4Interval;
+use GpsLab\Component\Interval\IPv4Network\IPv4Network;
 use GpsLab\Component\Interval\Month\MonthInterval;
 use GpsLab\Component\Interval\Number\NumberInterval;
 use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\BaseType;
 use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\DateIntervalType;
 use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\DateTimeIntervalType;
 use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\IPv4IntervalType;
+use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\IPv4NetworkType;
 use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\MonthIntervalType;
 use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\NumberIntervalType;
 use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\TimeIntervalType;
@@ -76,6 +78,7 @@ class IntervalTypeTest extends TestCase
             [$this->getType(TimeIntervalType::class), 'TimeInterval'],
             [$this->getType(WeekIntervalType::class), 'WeekInterval'],
             [$this->getType(YearIntervalType::class), 'YearInterval'],
+            [$this->getType(IPv4NetworkType::class), 'IPv4Network'],
         ];
     }
 
@@ -104,6 +107,7 @@ class IntervalTypeTest extends TestCase
             [$this->getType(TimeIntervalType::class)],
             [$this->getType(WeekIntervalType::class)],
             [$this->getType(YearIntervalType::class)],
+            [$this->getType(IPv4NetworkType::class)],
         ];
     }
 
@@ -172,6 +176,11 @@ class IntervalTypeTest extends TestCase
                 $this->getType(YearIntervalType::class),
                 YearInterval::class,
                 '[2016, 2017]',
+            ],
+            [
+                $this->getType(IPv4NetworkType::class),
+                IPv4Network::class,
+                '172.16.0.0/12',
             ],
         ];
     }
