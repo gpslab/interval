@@ -284,6 +284,10 @@ class IntervalComparator
      */
     public function before(IntervalPointInterface $point)
     {
+        if ($this->interval->startPoint()->eq($point)) {
+            return $this->interval->type()->startExcluded();
+        }
+
         return $this->interval->startPoint()->gt($point);
     }
 
@@ -296,6 +300,10 @@ class IntervalComparator
      */
     public function after(IntervalPointInterface $point)
     {
+        if ($this->interval->endPoint()->eq($point)) {
+            return $this->interval->type()->endExcluded();
+        }
+
         return $this->interval->endPoint()->lt($point);
     }
 }
