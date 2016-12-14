@@ -214,6 +214,18 @@ class MonthInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the gap between this interval and another interval.
+     *
+     * @param MonthInterval $interval
+     *
+     * @return self|null
+     */
+    public function gap(MonthInterval $interval)
+    {
+        return $this->comparator->gap($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

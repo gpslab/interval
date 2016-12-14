@@ -210,6 +210,18 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the gap between this interval and another interval.
+     *
+     * @param NumberInterval $interval
+     *
+     * @return self|null
+     */
+    public function gap(NumberInterval $interval)
+    {
+        return $this->comparator->gap($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param int|float $point

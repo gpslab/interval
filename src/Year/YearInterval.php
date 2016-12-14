@@ -214,6 +214,18 @@ class YearInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the gap between this interval and another interval.
+     *
+     * @param YearInterval $interval
+     *
+     * @return self|null
+     */
+    public function gap(YearInterval $interval)
+    {
+        return $this->comparator->gap($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

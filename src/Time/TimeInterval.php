@@ -214,6 +214,18 @@ class TimeInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the gap between this interval and another interval.
+     *
+     * @param TimeInterval $interval
+     *
+     * @return self|null
+     */
+    public function gap(TimeInterval $interval)
+    {
+        return $this->comparator->gap($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

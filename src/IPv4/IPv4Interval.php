@@ -210,6 +210,18 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the gap between this interval and another interval.
+     *
+     * @param IPv4Interval $interval
+     *
+     * @return self|null
+     */
+    public function gap(IPv4Interval $interval)
+    {
+        return $this->comparator->gap($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param string $point

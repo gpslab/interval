@@ -183,6 +183,52 @@ class IntervalComparator
     }
 
     /**
+     * Gets the gap between this interval and another interval.
+     *
+     * @param ComparableIntervalInterface $interval
+     *
+     * @return ComparableIntervalInterface|null
+     */
+    public function gap(ComparableIntervalInterface $interval)
+    {
+        if ($this->interval->startPoint()->gt($interval->endPoint())) {
+            $type = IntervalType::TYPE_CLOSED;
+
+            if (!$interval->type()->endExcluded()) { // invert exclude
+                $type |= IntervalType::TYPE_START_EXCLUDED;
+            }
+
+            if (!$this->interval->type()->startExcluded()) { // invert exclude
+                $type |= IntervalType::TYPE_END_EXCLUDED;
+            }
+
+            return $this->interval
+                ->withStart($interval->endPoint())
+                ->withEnd($this->interval->startPoint())
+                ->withType(IntervalType::create($type));
+        }
+
+        if ($interval->startPoint()->gt($this->interval->endPoint())) {
+            $type = IntervalType::TYPE_CLOSED;
+
+            if (!$this->interval->type()->endExcluded()) { // invert exclude
+                $type |= IntervalType::TYPE_START_EXCLUDED;
+            }
+
+            if (!$interval->type()->startExcluded()) { // invert exclude
+                $type |= IntervalType::TYPE_END_EXCLUDED;
+            }
+
+            return $this->interval
+                ->withStart($this->interval->endPoint())
+                ->withEnd($interval->startPoint())
+                ->withType(IntervalType::create($type));
+        }
+
+        return null; // no gap
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param IntervalPointInterface $point
