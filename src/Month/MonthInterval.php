@@ -226,6 +226,18 @@ class MonthInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param MonthInterval $interval
+     *
+     * @return bool
+     */
+    public function abuts(MonthInterval $interval)
+    {
+        return $this->comparator->abuts($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

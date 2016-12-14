@@ -229,6 +229,21 @@ class IntervalComparator
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param ComparableIntervalInterface $interval
+     *
+     * @return bool
+     */
+    public function abuts(ComparableIntervalInterface $interval)
+    {
+        return (
+            $interval->endPoint()->eq($this->interval->startPoint()) ||
+            $this->interval->endPoint()->eq($interval->startPoint())
+        );
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param IntervalPointInterface $point

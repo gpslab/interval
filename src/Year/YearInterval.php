@@ -226,6 +226,18 @@ class YearInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param YearInterval $interval
+     *
+     * @return bool
+     */
+    public function abuts(YearInterval $interval)
+    {
+        return $this->comparator->abuts($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

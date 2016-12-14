@@ -226,6 +226,18 @@ class WeekInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param WeekInterval $interval
+     *
+     * @return bool
+     */
+    public function abuts(WeekInterval $interval)
+    {
+        return $this->comparator->abuts($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

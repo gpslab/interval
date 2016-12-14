@@ -226,6 +226,18 @@ class TimeInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param TimeInterval $interval
+     *
+     * @return bool
+     */
+    public function abuts(TimeInterval $interval)
+    {
+        return $this->comparator->abuts($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

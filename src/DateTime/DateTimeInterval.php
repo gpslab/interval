@@ -225,6 +225,18 @@ class DateTimeInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param DateTimeInterval $interval
+     *
+     * @return bool
+     */
+    public function abuts(DateTimeInterval $interval)
+    {
+        return $this->comparator->abuts($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

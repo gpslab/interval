@@ -222,6 +222,18 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param NumberInterval $interval
+     *
+     * @return bool
+     */
+    public function abuts(NumberInterval $interval)
+    {
+        return $this->comparator->abuts($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param int|float $point

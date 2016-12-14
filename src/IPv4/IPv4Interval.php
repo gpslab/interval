@@ -222,6 +222,18 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval abut with the interval specified.
+     *
+     * @param IPv4Interval $interval
+     *
+     * @return bool
+     */
+    public function abuts(IPv4Interval $interval)
+    {
+        return $this->comparator->abuts($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param string $point
