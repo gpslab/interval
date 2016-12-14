@@ -152,6 +152,7 @@ class IntervalComparator
     public function cover(ComparableIntervalInterface $interval)
     {
         $type = IntervalType::TYPE_CLOSED;
+
         if ($this->interval->startPoint()->lt($interval->startPoint())) {
             $start = $this->interval->startPoint();
             if ($this->interval->type()->startExcluded()) {

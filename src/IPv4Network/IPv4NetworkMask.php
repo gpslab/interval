@@ -17,6 +17,11 @@ class IPv4NetworkMask
     /**
      * @var string
      */
+    const CIDR = '(3[0-2]|[1-2]?[0-9])';
+
+    /**
+     * @var string
+     */
     private $ip = '';
 
     /**

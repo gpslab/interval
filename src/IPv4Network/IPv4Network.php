@@ -20,9 +20,9 @@ class IPv4Network implements IntervalInterface
      */
     const REGEXP = '/^
         \s*
-        (?<ip>\d{1,3}(?:\.\d{1,3}(?:\.\d{1,3}(?:\.\d{1,3})?)?)?) # IP supported compact format
-        \/                                                       # separator
-        (?<cidr>\d{1,2})                                         # CIDR bit
+        (?<ip>'.IPv4NetworkPoint::IPV4_ADDR_COMPACT.') # IP supported compact format
+        \/                                             # separator
+        (?<cidr>'.IPv4NetworkMask::CIDR.')             # CIDR bit
         \s*
     $/x';
 

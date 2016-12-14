@@ -23,13 +23,13 @@ class IPv4Interval implements ComparableIntervalInterface
      * @var string
      */
     const REGEXP = '/^
-        (?:\(|\[)                                    # start type char
+        (?:\(|\[)                                  # start type char
         \s*
-        (?<start>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) # start point
-        \s*,\s*                                      # separator
-        (?<end>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})   # end point
+        (?<start>'.IPv4IntervalPoint::IPV4_ADDR.') # start point
+        \s*,\s*                                    # separator
+        (?<end>'.IPv4IntervalPoint::IPV4_ADDR.')   # end point
         \s*
-        (?:\)|\])                                    # end type char
+        (?:\)|\])                                  # end type char
     $/x';
 
     /**
