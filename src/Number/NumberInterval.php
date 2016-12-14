@@ -282,6 +282,22 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * @param int $step
+     *
+     * @return \Generator
+     */
+    public function iterate($step = 1)
+    {
+        $end = $this->end();
+        $number = $this->start();
+
+        while ($number < $end) {
+            yield $number;
+            $number += $step;
+        }
+    }
+
+    /**
      * @return IntervalType
      */
     public function type()
