@@ -238,6 +238,30 @@ class WeekInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Joins the interval between the adjacent.
+     *
+     * @param WeekInterval $interval
+     *
+     * @return self|null
+     */
+    public function join(WeekInterval $interval)
+    {
+        return $this->comparator->join($interval);
+    }
+
+    /**
+     * Gets the union between this interval and another interval.
+     *
+     * @param WeekInterval $interval
+     *
+     * @return self|null
+     */
+    public function union(WeekInterval $interval)
+    {
+        return $this->comparator->union($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

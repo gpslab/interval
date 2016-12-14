@@ -244,6 +244,38 @@ class IntervalComparator
     }
 
     /**
+     * Joins the interval between the adjacent.
+     *
+     * @param ComparableIntervalInterface $interval
+     *
+     * @return ComparableIntervalInterface|null
+     */
+    public function join(ComparableIntervalInterface $interval)
+    {
+        if (!$this->abuts($interval)) {
+            return null;
+        }
+
+        return $this->cover($interval);
+    }
+
+    /**
+     * Gets the union between this interval and another interval.
+     *
+     * @param ComparableIntervalInterface $interval
+     *
+     * @return ComparableIntervalInterface|null
+     */
+    public function union(ComparableIntervalInterface $interval)
+    {
+        if (!$this->intersects($interval)) {
+            return null;
+        }
+
+        return $this->cover($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param IntervalPointInterface $point

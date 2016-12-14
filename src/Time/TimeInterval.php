@@ -238,6 +238,30 @@ class TimeInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Joins the interval between the adjacent.
+     *
+     * @param TimeInterval $interval
+     *
+     * @return self|null
+     */
+    public function join(TimeInterval $interval)
+    {
+        return $this->comparator->join($interval);
+    }
+
+    /**
+     * Gets the union between this interval and another interval.
+     *
+     * @param TimeInterval $interval
+     *
+     * @return self|null
+     */
+    public function union(TimeInterval $interval)
+    {
+        return $this->comparator->union($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

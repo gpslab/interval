@@ -237,6 +237,30 @@ class DateTimeInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Joins the interval between the adjacent.
+     *
+     * @param DateTimeInterval $interval
+     *
+     * @return self|null
+     */
+    public function join(DateTimeInterval $interval)
+    {
+        return $this->comparator->join($interval);
+    }
+
+    /**
+     * Gets the union between this interval and another interval.
+     *
+     * @param DateTimeInterval $interval
+     *
+     * @return self|null
+     */
+    public function union(DateTimeInterval $interval)
+    {
+        return $this->comparator->union($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

@@ -238,6 +238,30 @@ class YearInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Joins the interval between the adjacent.
+     *
+     * @param YearInterval $interval
+     *
+     * @return self|null
+     */
+    public function join(YearInterval $interval)
+    {
+        return $this->comparator->join($interval);
+    }
+
+    /**
+     * Gets the union between this interval and another interval.
+     *
+     * @param YearInterval $interval
+     *
+     * @return self|null
+     */
+    public function union(YearInterval $interval)
+    {
+        return $this->comparator->union($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param \DateTime $point

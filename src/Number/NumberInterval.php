@@ -234,6 +234,30 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Joins the interval between the adjacent.
+     *
+     * @param NumberInterval $interval
+     *
+     * @return self|null
+     */
+    public function join(NumberInterval $interval)
+    {
+        return $this->comparator->join($interval);
+    }
+
+    /**
+     * Gets the union between this interval and another interval.
+     *
+     * @param NumberInterval $interval
+     *
+     * @return self|null
+     */
+    public function union(NumberInterval $interval)
+    {
+        return $this->comparator->union($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param int|float $point

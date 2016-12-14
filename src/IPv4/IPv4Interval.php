@@ -234,6 +234,30 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
+     * Joins the interval between the adjacent.
+     *
+     * @param IPv4Interval $interval
+     *
+     * @return self|null
+     */
+    public function join(IPv4Interval $interval)
+    {
+        return $this->comparator->join($interval);
+    }
+
+    /**
+     * Gets the union between this interval and another interval.
+     *
+     * @param IPv4Interval $interval
+     *
+     * @return self|null
+     */
+    public function union(IPv4Interval $interval)
+    {
+        return $this->comparator->union($interval);
+    }
+
+    /**
      * The point is before the interval.
      *
      * @param string $point
