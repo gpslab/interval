@@ -153,6 +153,8 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Checks if this Interval is equal to the specified interval.
+     *
      * @param DateInterval $interval
      *
      * @return bool
@@ -163,6 +165,8 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval contain the specified point.
+     *
      * @param \DateTime $point
      *
      * @return bool
@@ -173,6 +177,8 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval intersect the specified interval.
+     *
      * @param DateInterval $interval
      *
      * @return bool
@@ -183,6 +189,8 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the intersection between this interval and another interval.
+     *
      * @param DateInterval $interval
      *
      * @return self|null
@@ -193,6 +201,8 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the covered interval between this Interval and another interval.
+     *
      * @param DateInterval $interval
      *
      * @return self

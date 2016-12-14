@@ -29,6 +29,8 @@ class IntervalComparator
     }
 
     /**
+     * Checks if this Interval is equal to the specified interval.
+     *
      * @param ComparableIntervalInterface $interval
      *
      * @return bool
@@ -43,6 +45,8 @@ class IntervalComparator
     }
 
     /**
+     * Does this interval contain the specified point.
+     *
      * @param IntervalPointInterface $point
      *
      * @return bool
@@ -61,6 +65,8 @@ class IntervalComparator
     }
 
     /**
+     * Does this interval intersect the specified interval.
+     *
      * @param ComparableIntervalInterface $interval
      *
      * @return bool
@@ -86,6 +92,8 @@ class IntervalComparator
     }
 
     /**
+     * Gets the intersection between this interval and another interval.
+     *
      * @param ComparableIntervalInterface $interval
      *
      * @return ComparableIntervalInterface|null
@@ -135,6 +143,8 @@ class IntervalComparator
     }
 
     /**
+     * Gets the covered interval between this Interval and another interval.
+     *
      * @param ComparableIntervalInterface $interval
      *
      * @return ComparableIntervalInterface

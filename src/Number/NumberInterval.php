@@ -150,6 +150,8 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Checks if this Interval is equal to the specified interval.
+     *
      * @param NumberInterval $interval
      *
      * @return bool
@@ -160,6 +162,8 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval contain the specified point.
+     *
      * @param int|float $point
      *
      * @return bool
@@ -170,6 +174,8 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Does this interval intersect the specified interval.
+     *
      * @param NumberInterval $interval
      *
      * @return bool
@@ -180,6 +186,8 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the intersection between this interval and another interval.
+     *
      * @param NumberInterval $interval
      *
      * @return self|null
@@ -190,6 +198,8 @@ class NumberInterval implements ComparableIntervalInterface
     }
 
     /**
+     * Gets the covered interval between this Interval and another interval.
+     *
      * @param NumberInterval $interval
      *
      * @return self

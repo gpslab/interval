@@ -1,4 +1,5 @@
 <?php
+
 /**
  * GpsLab component.
  *
@@ -7,7 +8,7 @@
  * @license   http://opensource.org/licenses/MIT
  */
 
-namespace Pkvs\Carousel\Tests\Interval\Number;
+namespace GpsLab\Component\Tests\Interval\Number;
 
 use GpsLab\Component\Interval\Number\NumberInterval;
 use PHPUnit\Framework\TestCase;
