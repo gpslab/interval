@@ -114,16 +114,20 @@ class IPv4Network implements IntervalInterface
     }
 
     /**
-     * @param IPv4Network $interval
+     * Checks if this network is equal to the specified network.
+     *
+     * @param IPv4Network $network
      *
      * @return bool
      */
-    public function equal(IPv4Network $interval)
+    public function equal(IPv4Network $network)
     {
-        return $this->comparator->equal($interval);
+        return $this->comparator->equal($network);
     }
 
     /**
+     * Does this network contain the specified IP.
+     *
      * @param string $point
      *
      * @return bool
@@ -134,13 +138,15 @@ class IPv4Network implements IntervalInterface
     }
 
     /**
-     * @param IPv4Network $interval
+     * Does this network intersect the specified network.
+     *
+     * @param IPv4Network $network
      *
      * @return bool
      */
-    public function intersects(IPv4Network $interval)
+    public function intersects(IPv4Network $network)
     {
-        return $this->comparator->intersects($interval);
+        return $this->comparator->intersects($network);
     }
 
     /**

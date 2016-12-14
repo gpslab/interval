@@ -154,7 +154,7 @@ class TimeInterval implements ComparableIntervalInterface
     }
 
     /**
-     * Checks if this Interval is equal to the specified interval.
+     * Checks if this interval is equal to the specified interval.
      *
      * @param TimeInterval $interval
      *
