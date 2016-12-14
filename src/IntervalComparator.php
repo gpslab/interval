@@ -154,24 +154,24 @@ class IntervalComparator
         $type = IntervalType::TYPE_CLOSED;
         if ($this->interval->startPoint()->lt($interval->startPoint())) {
             $start = $this->interval->startPoint();
-            if ($interval->type()->startExcluded()) {
+            if ($this->interval->type()->startExcluded()) {
                 $type |= IntervalType::TYPE_START_EXCLUDED;
             }
         } else {
             $start = $interval->startPoint();
-            if ($this->interval->type()->startExcluded()) {
+            if ($interval->type()->startExcluded()) {
                 $type |= IntervalType::TYPE_START_EXCLUDED;
             }
         }
 
         if ($this->interval->endPoint()->gt($interval->endPoint())) {
             $end = $this->interval->endPoint();
-            if ($interval->type()->endExcluded()) {
+            if ($this->interval->type()->endExcluded()) {
                 $type |= IntervalType::TYPE_END_EXCLUDED;
             }
         } else {
             $end = $interval->endPoint();
-            if ($this->interval->type()->endExcluded()) {
+            if ($interval->type()->endExcluded()) {
                 $type |= IntervalType::TYPE_END_EXCLUDED;
             }
         }
