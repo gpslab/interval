@@ -61,7 +61,7 @@ class IPv6Network
         $this->comparator = new IPv6NetworkComparator($this);
 
         // calculate end point
-        $end = inet_ntop($ip->value() | ~ inet_pton($this->getIPMaskFromCIDR($mask)));
+        $end = inet_ntop($ip->value() | ~inet_pton($this->getIPMaskFromCIDR($mask)));
         $end = preg_replace('/:(0:)+/', '::', $end, 1); // format end ip
         $this->end = new IPv6NetworkPoint($end);
     }
@@ -99,7 +99,6 @@ class IPv6Network
 
         return new self(new IPv6NetworkPoint($ip), $cidr);
     }
-
 
     /**
      * Create network from string.

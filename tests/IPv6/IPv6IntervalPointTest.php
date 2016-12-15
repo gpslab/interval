@@ -65,7 +65,7 @@ class IPv6IntervalPointTest extends \PHPUnit_Framework_TestCase
         $point1 = new IPv6IntervalPoint($ip);
         $point2 = new IPv6IntervalPoint($ip);
 
-        $this->assertEquals($ip, (string)$point1);
+        $this->assertEquals($ip, (string) $point1);
         $this->assertEquals(inet_pton($ip), $point1->value());
 
         $this->assertTrue($point1->eq($point2));
