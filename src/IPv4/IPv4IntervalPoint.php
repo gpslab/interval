@@ -41,7 +41,7 @@ class IPv4IntervalPoint extends BaseIntervalPoint
     public function __construct($ip)
     {
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false) {
-            throw InvalidPointTypeException::type('IPv4', $ip);
+            throw InvalidPointTypeException::point('IPv4', $ip);
         }
 
         $this->ip = $ip;

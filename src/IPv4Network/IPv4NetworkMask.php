@@ -53,7 +53,7 @@ class IPv4NetworkMask
     public static function fromIP($ip)
     {
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false) {
-            throw InvalidPointTypeException::type('IPv4', $ip);
+            throw InvalidPointTypeException::point('IPv4', $ip);
         }
 
         // get CIDR from IP mask
