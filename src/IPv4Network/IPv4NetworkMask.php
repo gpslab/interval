@@ -83,7 +83,8 @@ class IPv4NetworkMask
             throw InvalidMaskException::cidr($cidr);
         }
 
-        return new self(long2ip((-1 << (32 - $cidr)) & ip2long('255.255.255.255')), $cidr);
+        // ip2long('255.255.255.255') == -1
+        return new self(long2ip((-1 << (32 - $cidr)) & -1), $cidr);
     }
 
     /**
