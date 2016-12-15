@@ -11,7 +11,7 @@
 namespace GpsLab\Component\Interval\IPv4Network;
 
 /**
- * The comparator must be used only in IPv4Network intervals.
+ * The comparator must be used only in IPv4Network.
  */
 class IPv4NetworkComparator
 {

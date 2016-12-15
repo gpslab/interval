@@ -70,7 +70,7 @@ class IPv6IntervalPoint extends BaseIntervalPoint
     public function __construct($ip)
     {
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
-            throw InvalidPointTypeException::create('IPv6', $ip);
+            throw InvalidPointTypeException::point('IPv6', $ip);
         }
 
         $this->ip = $ip;

@@ -26,7 +26,7 @@ class NumberIntervalPoint extends BaseIntervalPoint
     public function __construct($number)
     {
         if (!is_numeric($number)) {
-            throw InvalidPointTypeException::create('int|float', $number);
+            throw InvalidPointTypeException::type('int|float', $number);
         }
 
         $this->number = $number;

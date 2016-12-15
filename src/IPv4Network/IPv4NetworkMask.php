@@ -17,7 +17,7 @@ class IPv4NetworkMask
     /**
      * @var string
      */
-    const CIDR = '(3[0-2]|[1-2]?[0-9])';
+    const CIDR = '(3[0-2]|[1-2]?[0-9])'; // 0-32
 
     /**
      * @var string
@@ -53,7 +53,7 @@ class IPv4NetworkMask
     public static function fromIP($ip)
     {
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false) {
-            throw InvalidPointTypeException::create('IPv4', $ip);
+            throw InvalidPointTypeException::type('IPv4', $ip);
         }
 
         // get CIDR from IP mask

@@ -18,12 +18,27 @@ class InvalidPointTypeException extends \InvalidArgumentException
      *
      * @return self
      */
-    public static function create($expected_type, $point)
+    public static function type($expected_type, $point)
     {
         return new static(sprintf(
             'The point value must be of "%s" type. Actual type is "%s".',
             $expected_type,
             gettype($point)
+        ));
+    }
+
+    /**
+     * @param string $expected_type
+     * @param string $point
+     *
+     * @return self
+     */
+    public static function point($expected_type, $point)
+    {
+        return new static(sprintf(
+            'The point value must be of "%s". Actual point value is "%s".',
+            $expected_type,
+            $point
         ));
     }
 }
