@@ -22,7 +22,7 @@ class IPv6IntervalPoint extends BaseIntervalPoint
     const IPV6_SEG = '[0-9a-fA-F]{1,4}';
 
     /**
-     * IPv6 address
+     * IPv6 address.
      *
      * Ignore:
      *     link-local IPv6 addresses with zone index
