@@ -171,7 +171,7 @@ class IPv4Network implements IntervalInterface
         $end = $this->endPoint()->value();
         $ip = $this->startPoint()->value();
 
-        while ($ip < $end) {
+        while ($ip <= $end) {
             yield long2ip($ip);
             $ip += $step;
         }

@@ -189,4 +189,45 @@ class IPv4NetworkTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $network_a->intersects($network_b));
         $this->assertEquals($expected, $network_b->intersects($network_a));
     }
+
+    public function testIterate()
+    {
+        $expected = [
+            '10.0.1.0',
+            '10.0.1.1',
+            '10.0.1.2',
+            '10.0.1.3',
+            '10.0.1.4',
+            '10.0.1.5',
+            '10.0.1.6',
+            '10.0.1.7',
+        ];
+        $interval = IPv4Network::fromString('10.0.1.0/29');
+
+        $points = [];
+        foreach ($interval->iterate() as $point) {
+            $points[] = $point;
+        }
+
+        $this->assertEquals($expected, $points);
+    }
+
+    public function testIterateWithStep()
+    {
+        $expected = [
+            '10.0.1.0',
+            '10.0.1.2',
+            '10.0.1.4',
+            '10.0.1.6',
+        ];
+        $step = 2;
+        $interval = IPv4Network::fromString('10.0.1.0/29');
+
+        $points = [];
+        foreach ($interval->iterate($step) as $point) {
+            $points[] = $point;
+        }
+
+        $this->assertEquals($expected, $points);
+    }
 }
