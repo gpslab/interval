@@ -24,7 +24,7 @@ composer require gpslab/interval
 
 ## Interval type
 
-The library supports [interval types](https://en.wikipedia.org/wiki/Interval_(mathematics)).
+This library is supports [interval types](https://en.wikipedia.org/wiki/Interval_(mathematics)).
 
 * `[a, b]` - Closed
 * `[a, b)` - Half-closed
@@ -72,6 +72,21 @@ $interval = NumberInterval::halfClosed(1, 5);
 // created a new interval instance
 $new_interval = $interval->withStart(2);
 $interval->start() != $new_interval->start(); // true
+```
+
+IPv4 network
+
+```php
+// from CIDR
+$network = IPv4Network::fromCIDR('192.168.0.0', 16);
+echo $network->start(); // 192.168.0.0
+echo $network->end(); // 192.168.255.255
+
+$network->contains('192.168.13.74'); // true
+
+// from ip mask
+$new_network = IPv4Network::fromMask('192.168.0.0', '255.255.0.0');
+$network->equal($new_network); // true
 ```
 
 ## Interval operations
