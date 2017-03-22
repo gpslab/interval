@@ -295,7 +295,13 @@ class YearInterval implements ComparableIntervalInterface
         $step = $step ?: new \DateInterval('P1Y');
 
         $date = $this->start();
-        while ($date < $this->end()) {
+        $end = $this->end();
+
+        if ($this->type->startExcluded()) {
+            $date->add($step);
+        }
+
+        while ($date < $end || (!$this->type->endExcluded() && $date == $end)) {
             yield $date;
             $date->add($step);
         }
