@@ -41,6 +41,7 @@ class TimeIntervalTest extends TestCase
             '16:34:15',
             '16:36:15',
             '16:38:15',
+            '16:40:15', // less than end point
         ];
         $step = new \DateInterval('PT2M');
         $interval = TimeInterval::open(new \DateTime('16:30:15'), new \DateTime('16:40:42'));

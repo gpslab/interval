@@ -43,6 +43,7 @@ class DateTimeIntervalTest extends TestCase
             '2017-03-05 04:30:15',
             '2017-03-07 04:30:15',
             '2017-03-09 04:30:15',
+            '2017-03-11 04:30:15', // less than end point
         ];
         $step = new \DateInterval('P2D');
         $interval = DateTimeInterval::open(

@@ -295,11 +295,7 @@ class IPv4Interval implements ComparableIntervalInterface
             $ip += $step;
         }
 
-        if ($this->type->endExcluded()) {
-            $end -= $step;
-        }
-
-        while ($ip <= $end) {
+        while ($ip < $end || (!$this->type->endExcluded() && $ip == $end)) {
             yield long2ip($ip);
             $ip += $step;
         }

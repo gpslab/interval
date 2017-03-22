@@ -301,11 +301,7 @@ class TimeInterval implements ComparableIntervalInterface
             $date->add($step);
         }
 
-        if ($this->type->endExcluded()) {
-            $end->sub($step);
-        }
-
-        while ($date <= $end) {
+        while ($date < $end || (!$this->type->endExcluded() && $date == $end)) {
             yield $date;
             $date->add($step);
         }
