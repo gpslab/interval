@@ -25,7 +25,7 @@ class YearIntervalPoint extends BaseIntervalPoint
     public function __construct(\DateTime $date)
     {
         $this->year = clone $date;
-        $this->year->modify('first day of January')->setTime(0, 0, 0);
+        $this->year->setDate($date->format('Y'), 1, 1)->setTime(0, 0, 0);
     }
 
     /**
