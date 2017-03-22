@@ -393,6 +393,6 @@ class DateInterval implements ComparableIntervalInterface
      */
     public function __toString()
     {
-        return $this->type->getReadable($this);
+        return $this->type->formatInterval($this);
     }
 }

@@ -250,13 +250,41 @@ final class IntervalType
     }
 
     /**
+     * @param string $start
+     * @param string $end
+     *
+     * @return string
+     */
+    public function format($start, $end)
+    {
+        return sprintf($this->formats[$this->type()], $start, $end);
+    }
+
+    /**
+     * @param IntervalInterface $interval
+     *
+     * @return string
+     */
+    public function formatInterval(IntervalInterface $interval)
+    {
+        return $this->format((string) $interval->startPoint(), (string) $interval->endPoint());
+    }
+
+    /**
+     * @deprecated It's will be removed in later. You must use formatInterval()
      * @param IntervalInterface $interval
      *
      * @return string
      */
     public function getReadable(IntervalInterface $interval)
     {
-        return $this->format((string) $interval->startPoint(), (string) $interval->endPoint());
+        trigger_error(
+            'Method IntervalType::getReadable() is will be removed in later. '.
+            'You must use IntervalType::formatInterval()',
+            E_USER_DEPRECATED
+        );
+
+        return $this->formatInterval($interval);
     }
 
     /**
@@ -265,16 +293,5 @@ final class IntervalType
     public function __toString()
     {
         return $this->format('a', 'b');
-    }
-
-    /**
-     * @param string $start
-     * @param string $end
-     *
-     * @return string
-     */
-    private function format($start, $end)
-    {
-        return sprintf($this->formats[$this->type()], $start, $end);
     }
 }
