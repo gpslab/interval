@@ -294,7 +294,17 @@ class DateInterval implements ComparableIntervalInterface
         $step = $step ?: new \DateInterval('P1D');
 
         $date = $this->start();
-        while ($date < $this->end()) {
+        $end = $this->end();
+
+        if ($this->type->startExcluded()) {
+            $date->add($step);
+        }
+
+        if ($this->type->endExcluded()) {
+            $end->sub($step);
+        }
+
+        while ($date <= $end) {
             yield $date;
             $date->add($step);
         }
