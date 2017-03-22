@@ -291,7 +291,15 @@ class NumberInterval implements ComparableIntervalInterface
         $end = $this->end();
         $number = $this->start();
 
-        while ($number < $end) {
+        if ($this->type->startExcluded()) {
+            $number += $step;
+        }
+
+        if ($this->type->endExcluded()) {
+            $end -= $step;
+        }
+
+        while ($number <= $end) {
             yield $number;
             $number += $step;
         }

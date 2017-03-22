@@ -116,4 +116,29 @@ class NumberIntervalTest extends TestCase
 
         $this->assertEquals($expected_interval, $origin_interval->intersection($compare_interval));
     }
+
+    public function testIterate()
+    {
+        $interval = NumberInterval::closed(1, 5);
+
+        $points = [];
+        foreach ($interval->iterate() as $point) {
+            $points[] = $point;
+        }
+
+        $this->assertEquals([1, 2, 3, 4, 5], $points);
+    }
+
+    public function testIterateWithStep()
+    {
+        $step = 2;
+        $interval = NumberInterval::open(0, 10);
+
+        $points = [];
+        foreach ($interval->iterate($step) as $point) {
+            $points[] = $point;
+        }
+
+        $this->assertEquals([2, 4, 6, 8], $points);
+    }
 }
