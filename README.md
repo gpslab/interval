@@ -132,7 +132,7 @@ foreach ($interval->iterate() as $point) {
 $points_in_interval == [1, 2, 3, 4, 5]; // true
 ```
 
-Use step `2` and open interval type `[0, 10]`
+Use step `2` and open interval type `(0, 10)`
 
 ```php
 $step = 2;
