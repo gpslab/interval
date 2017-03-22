@@ -25,7 +25,7 @@ class MonthIntervalPoint extends BaseIntervalPoint
     public function __construct(\DateTime $date)
     {
         $this->month = clone $date;
-        $this->month->modify('first day of this month')->setTime(0, 0, 0);
+        $this->month->setDate($date->format('Y'), $date->format('m'), 1)->setTime(0, 0, 0);
     }
 
     /**
