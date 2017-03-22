@@ -295,7 +295,17 @@ class WeekInterval implements ComparableIntervalInterface
         $step = $step ?: new \DateInterval('P1W');
 
         $date = $this->start();
-        while ($date < $this->end()) {
+        $end = $this->end();
+
+        if ($this->type->startExcluded()) {
+            $date->add($step);
+        }
+
+        if ($this->type->endExcluded()) {
+            $end->sub($step);
+        }
+
+        while ($date <= $end) {
             yield $date;
             $date->add($step);
         }
