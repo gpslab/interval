@@ -39,13 +39,9 @@ class WeekIntervalPoint extends BaseIntervalPoint
     private function getMondayThisWeek(\DateTime $date)
     {
         $monday = clone $date;
-
-        if ($monday->format('N') != 1) {
-            $monday->modify('Monday this week');
-
-            if ($date->format('Y W') != $monday->format('Y W')) {
-                $monday->modify('-7 day');
-            }
+        $number = $monday->format('N');
+        if ($number != 1) {
+            $monday->modify('-'.($number - 1).' day');
         }
 
         return $monday;
