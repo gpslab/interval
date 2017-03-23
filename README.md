@@ -70,7 +70,7 @@ Change intervals
 ```php
 $interval = NumberInterval::halfClosed(1, 5);
 // created a new interval instance
-$new_interval = $interval->withStart(2);
+$new_interval = $interval->withStart(new NumberIntervalPoint(2));
 $interval->start() != $new_interval->start(); // true
 ```
 
