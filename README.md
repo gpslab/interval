@@ -216,7 +216,8 @@ Type::addType('NumberInterval', 'GpsLab\Component\Interval\Persistence\Doctrine\
 $em->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('NumberInterval', 'NumberInterval');
 ```
 
-Example registration Doctrine types in Symfony
+You cat [registration](http://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types) custom
+Doctrine mapping types in Symfony
 
 ```yml
 # app/config/config.yml
