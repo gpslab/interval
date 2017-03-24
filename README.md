@@ -89,6 +89,26 @@ $new_network = IPv4Network::fromMask('192.168.0.0', '255.255.0.0');
 $network->equal($new_network); // true
 ```
 
+Local network
+
+```php
+function isLocalNetworkHost($host)
+{
+    // is IPv6
+    if (strpos($host, ':') !== false) {
+        // RFC 4193
+        return IPv6Network::fromString('fc00::/7')->contains($host);
+    }
+
+    // RFC 1918
+    return
+        IPv4Network::fromString('10/8')->contains($host) ||
+        IPv4Network::fromString('172.16/12')->contains($host) ||
+        IPv4Network::fromString('192.168/16')->contains($host)
+    ;
+}
+```
+
 ## Interval operations
 
 * `equal` - Checks if this Interval is equal to the specified interval;
