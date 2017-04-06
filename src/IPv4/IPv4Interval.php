@@ -222,7 +222,7 @@ class IPv4Interval implements ComparableIntervalInterface
     }
 
     /**
-     * Does this interval abut with the interval specified.
+     * Does this interval abuts with the interval specified.
      *
      * @param IPv4Interval $interval
      *
