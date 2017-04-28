@@ -1,5 +1,4 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/gpslab/interval.svg?maxAge=3600&label=stable)](https://packagist.org/packages/gpslab/interval)
-[![Latest Unstable Version](https://img.shields.io/packagist/vpre/gpslab/interval.svg?maxAge=3600&label=unstable)](https://packagist.org/packages/gpslab/interval)
 [![Total Downloads](https://img.shields.io/packagist/dt/gpslab/interval.svg?maxAge=3600)](https://packagist.org/packages/gpslab/interval)
 [![Build Status](https://img.shields.io/travis/gpslab/interval.svg?maxAge=3600)](https://travis-ci.org/gpslab/interval)
 [![Coverage Status](https://img.shields.io/coveralls/gpslab/interval.svg?maxAge=3600)](https://coveralls.io/github/gpslab/interval?branch=master)
