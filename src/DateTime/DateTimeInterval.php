@@ -159,7 +159,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function equal(DateTimeInterval $interval)
+    public function equal(self $interval)
     {
         return $this->comparator->equal($interval);
     }
@@ -183,7 +183,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function intersects(DateTimeInterval $interval)
+    public function intersects(self $interval)
     {
         return $this->comparator->intersects($interval);
     }
@@ -195,7 +195,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function intersection(DateTimeInterval $interval)
+    public function intersection(self $interval)
     {
         return $this->comparator->intersection($interval);
     }
@@ -207,7 +207,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return self
      */
-    public function cover(DateTimeInterval $interval)
+    public function cover(self $interval)
     {
         return $this->comparator->cover($interval);
     }
@@ -219,7 +219,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function gap(DateTimeInterval $interval)
+    public function gap(self $interval)
     {
         return $this->comparator->gap($interval);
     }
@@ -231,7 +231,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function abuts(DateTimeInterval $interval)
+    public function abuts(self $interval)
     {
         return $this->comparator->abuts($interval);
     }
@@ -243,7 +243,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function join(DateTimeInterval $interval)
+    public function join(self $interval)
     {
         return $this->comparator->join($interval);
     }
@@ -255,7 +255,7 @@ class DateTimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function union(DateTimeInterval $interval)
+    public function union(self $interval)
     {
         return $this->comparator->union($interval);
     }

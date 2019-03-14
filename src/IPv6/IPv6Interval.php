@@ -144,6 +144,7 @@ class IPv6Interval implements ComparableIntervalInterface
     {
         if (!preg_match(self::REGEXP, $string, $match)) {
             $ipv6 = implode(':', array_fill(0, 8, 'ffff'));
+
             throw InvalidIntervalFormatException::create(sprintf('[%s, %s]', $ipv6, $ipv6), $string);
         }
 
@@ -157,7 +158,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function equal(IPv6Interval $interval)
+    public function equal(self $interval)
     {
         return $this->comparator->equal($interval);
     }
@@ -181,7 +182,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function intersects(IPv6Interval $interval)
+    public function intersects(self $interval)
     {
         return $this->comparator->intersects($interval);
     }
@@ -193,7 +194,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function intersection(IPv6Interval $interval)
+    public function intersection(self $interval)
     {
         return $this->comparator->intersection($interval);
     }
@@ -205,7 +206,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return self
      */
-    public function cover(IPv6Interval $interval)
+    public function cover(self $interval)
     {
         return $this->comparator->cover($interval);
     }
@@ -217,7 +218,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function gap(IPv6Interval $interval)
+    public function gap(self $interval)
     {
         return $this->comparator->gap($interval);
     }
@@ -229,7 +230,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function abuts(IPv6Interval $interval)
+    public function abuts(self $interval)
     {
         return $this->comparator->abuts($interval);
     }
@@ -241,7 +242,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function join(IPv6Interval $interval)
+    public function join(self $interval)
     {
         return $this->comparator->join($interval);
     }
@@ -253,7 +254,7 @@ class IPv6Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function union(IPv6Interval $interval)
+    public function union(self $interval)
     {
         return $this->comparator->union($interval);
     }

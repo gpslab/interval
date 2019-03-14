@@ -108,7 +108,7 @@ class IPv4NetworkMask
      *
      * @return bool
      */
-    public function equal(IPv4NetworkMask $mask)
+    public function equal(self $mask)
     {
         return $this->long == $mask->ip();
     }

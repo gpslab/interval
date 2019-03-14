@@ -160,7 +160,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function equal(TimeInterval $interval)
+    public function equal(self $interval)
     {
         return $this->comparator->equal($interval);
     }
@@ -184,7 +184,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function intersects(TimeInterval $interval)
+    public function intersects(self $interval)
     {
         return $this->comparator->intersects($interval);
     }
@@ -196,7 +196,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function intersection(TimeInterval $interval)
+    public function intersection(self $interval)
     {
         return $this->comparator->intersection($interval);
     }
@@ -208,7 +208,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return self
      */
-    public function cover(TimeInterval $interval)
+    public function cover(self $interval)
     {
         return $this->comparator->cover($interval);
     }
@@ -220,7 +220,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function gap(TimeInterval $interval)
+    public function gap(self $interval)
     {
         return $this->comparator->gap($interval);
     }
@@ -232,7 +232,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function abuts(TimeInterval $interval)
+    public function abuts(self $interval)
     {
         return $this->comparator->abuts($interval);
     }
@@ -244,7 +244,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function join(TimeInterval $interval)
+    public function join(self $interval)
     {
         return $this->comparator->join($interval);
     }
@@ -256,7 +256,7 @@ class TimeInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function union(TimeInterval $interval)
+    public function union(self $interval)
     {
         return $this->comparator->union($interval);
     }

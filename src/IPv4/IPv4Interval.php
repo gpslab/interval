@@ -156,7 +156,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function equal(IPv4Interval $interval)
+    public function equal(self $interval)
     {
         return $this->comparator->equal($interval);
     }
@@ -180,7 +180,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function intersects(IPv4Interval $interval)
+    public function intersects(self $interval)
     {
         return $this->comparator->intersects($interval);
     }
@@ -192,7 +192,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function intersection(IPv4Interval $interval)
+    public function intersection(self $interval)
     {
         return $this->comparator->intersection($interval);
     }
@@ -204,7 +204,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return self
      */
-    public function cover(IPv4Interval $interval)
+    public function cover(self $interval)
     {
         return $this->comparator->cover($interval);
     }
@@ -216,7 +216,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function gap(IPv4Interval $interval)
+    public function gap(self $interval)
     {
         return $this->comparator->gap($interval);
     }
@@ -228,7 +228,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function abuts(IPv4Interval $interval)
+    public function abuts(self $interval)
     {
         return $this->comparator->abuts($interval);
     }
@@ -240,7 +240,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function join(IPv4Interval $interval)
+    public function join(self $interval)
     {
         return $this->comparator->join($interval);
     }
@@ -252,7 +252,7 @@ class IPv4Interval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function union(IPv4Interval $interval)
+    public function union(self $interval)
     {
         return $this->comparator->union($interval);
     }
