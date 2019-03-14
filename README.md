@@ -219,7 +219,7 @@ You cat [registration](http://symfony.com/doc/current/doctrine/dbal.html#registe
 Doctrine mapping types in Symfony
 
 ```yml
-# app/config/config.yml
+# config/packages/doctrine.yml
 doctrine:
     dbal:
         types:
