@@ -159,7 +159,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function equal(DateInterval $interval)
+    public function equal(self $interval)
     {
         return $this->comparator->equal($interval);
     }
@@ -183,7 +183,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function intersects(DateInterval $interval)
+    public function intersects(self $interval)
     {
         return $this->comparator->intersects($interval);
     }
@@ -195,7 +195,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function intersection(DateInterval $interval)
+    public function intersection(self $interval)
     {
         return $this->comparator->intersection($interval);
     }
@@ -207,7 +207,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return self
      */
-    public function cover(DateInterval $interval)
+    public function cover(self $interval)
     {
         return $this->comparator->cover($interval);
     }
@@ -219,7 +219,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function gap(DateInterval $interval)
+    public function gap(self $interval)
     {
         return $this->comparator->gap($interval);
     }
@@ -231,7 +231,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function abuts(DateInterval $interval)
+    public function abuts(self $interval)
     {
         return $this->comparator->abuts($interval);
     }
@@ -243,7 +243,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function join(DateInterval $interval)
+    public function join(self $interval)
     {
         return $this->comparator->join($interval);
     }
@@ -255,7 +255,7 @@ class DateInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function union(DateInterval $interval)
+    public function union(self $interval)
     {
         return $this->comparator->union($interval);
     }

@@ -22,42 +22,42 @@ interface IntervalPointInterface
      *
      * @return bool
      */
-    public function eq(IntervalPointInterface $point);
+    public function eq(self $point);
 
     /**
      * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function neq(IntervalPointInterface $point);
+    public function neq(self $point);
 
     /**
      * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function lt(IntervalPointInterface $point);
+    public function lt(self $point);
 
     /**
      * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function lte(IntervalPointInterface $point);
+    public function lte(self $point);
 
     /**
      * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function gt(IntervalPointInterface $point);
+    public function gt(self $point);
 
     /**
      * @param IntervalPointInterface $point
      *
      * @return bool
      */
-    public function gte(IntervalPointInterface $point);
+    public function gte(self $point);
 
     /**
      * @return string

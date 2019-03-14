@@ -66,15 +66,19 @@ class IPv6IntervalTest extends \PHPUnit_Framework_TestCase
         switch ($type) {
             case IntervalType::TYPE_CLOSED:
                 $interval3 = IPv6Interval::closed($start, $end);
+
                 break;
             case IntervalType::TYPE_OPEN:
                 $interval3 = IPv6Interval::open($start, $end);
+
                 break;
             case IntervalType::TYPE_HALF_CLOSED:
                 $interval3 = IPv6Interval::halfClosed($start, $end);
+
                 break;
             case IntervalType::TYPE_HALF_OPEN:
                 $interval3 = IPv6Interval::halfOpen($start, $end);
+
                 break;
             default: // bad interval type
                 $interval3 = null;

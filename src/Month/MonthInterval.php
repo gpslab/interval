@@ -160,7 +160,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function equal(MonthInterval $interval)
+    public function equal(self $interval)
     {
         return $this->comparator->equal($interval);
     }
@@ -184,7 +184,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function intersects(MonthInterval $interval)
+    public function intersects(self $interval)
     {
         return $this->comparator->intersects($interval);
     }
@@ -196,7 +196,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function intersection(MonthInterval $interval)
+    public function intersection(self $interval)
     {
         return $this->comparator->intersection($interval);
     }
@@ -208,7 +208,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return self
      */
-    public function cover(MonthInterval $interval)
+    public function cover(self $interval)
     {
         return $this->comparator->cover($interval);
     }
@@ -220,7 +220,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function gap(MonthInterval $interval)
+    public function gap(self $interval)
     {
         return $this->comparator->gap($interval);
     }
@@ -232,7 +232,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return bool
      */
-    public function abuts(MonthInterval $interval)
+    public function abuts(self $interval)
     {
         return $this->comparator->abuts($interval);
     }
@@ -244,7 +244,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function join(MonthInterval $interval)
+    public function join(self $interval)
     {
         return $this->comparator->join($interval);
     }
@@ -256,7 +256,7 @@ class MonthInterval implements ComparableIntervalInterface
      *
      * @return self|null
      */
-    public function union(MonthInterval $interval)
+    public function union(self $interval)
     {
         return $this->comparator->union($interval);
     }

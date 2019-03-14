@@ -117,6 +117,7 @@ class IPv6Network
     {
         if (!preg_match(self::REGEXP, $string, $match)) {
             $ipv6 = implode(':', array_fill(0, 8, 'ffff'));
+
             throw InvalidIntervalFormatException::create($ipv6.'/128', $string);
         }
 
@@ -130,7 +131,7 @@ class IPv6Network
      *
      * @return bool
      */
-    public function equal(IPv6Network $network)
+    public function equal(self $network)
     {
         return $this->comparator->equal($network);
     }
@@ -154,7 +155,7 @@ class IPv6Network
      *
      * @return bool
      */
-    public function intersects(IPv6Network $network)
+    public function intersects(self $network)
     {
         return $this->comparator->intersects($network);
     }
@@ -166,7 +167,7 @@ class IPv6Network
      *
      * @return bool
      */
-    public function abuts(IPv6Network $network)
+    public function abuts(self $network)
     {
         return $this->comparator->abuts($network);
     }

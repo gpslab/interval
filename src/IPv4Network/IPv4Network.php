@@ -120,7 +120,7 @@ class IPv4Network implements IntervalInterface
      *
      * @return bool
      */
-    public function equal(IPv4Network $network)
+    public function equal(self $network)
     {
         return $this->comparator->equal($network);
     }
@@ -144,7 +144,7 @@ class IPv4Network implements IntervalInterface
      *
      * @return bool
      */
-    public function intersects(IPv4Network $network)
+    public function intersects(self $network)
     {
         return $this->comparator->intersects($network);
     }
@@ -156,7 +156,7 @@ class IPv4Network implements IntervalInterface
      *
      * @return bool
      */
-    public function abuts(IPv4Network $network)
+    public function abuts(self $network)
     {
         return $this->comparator->abuts($network);
     }
