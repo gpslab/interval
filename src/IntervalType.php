@@ -29,28 +29,28 @@ final class IntervalType
     const TYPE_END_EXCLUDED = 2;
 
     /**
-     * [a, b].
+     * [a, b] = [a, b] = {x ∈ ℝ | a ≤ x ≤ b}.
      *
      * @var int
      */
     const TYPE_CLOSED = 0;
 
     /**
-     * [a, b).
+     * [a, b) = [a, b[ = {x ∈ ℝ | a ≤ x < b}.
      *
      * @var int
      */
     const TYPE_HALF_CLOSED = self::TYPE_CLOSED | self::TYPE_END_EXCLUDED;
 
     /**
-     * (a, b].
+     * (a, b] = ]a, b] = {x ∈ ℝ | a < x ≤ b}.
      *
      * @var int
      */
     const TYPE_HALF_OPEN = self::TYPE_CLOSED | self::TYPE_START_EXCLUDED;
 
     /**
-     * (a, b).
+     * (a, b) = ]a, b[ = {x ∈ ℝ | a < x < b}.
      *
      * @var int
      */

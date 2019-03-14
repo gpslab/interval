@@ -25,10 +25,10 @@ composer require gpslab/interval
 
 This library is supports [interval types](https://en.wikipedia.org/wiki/Interval_(mathematics)).
 
-* `[a, b]` - Closed
-* `[a, b)` - Half-closed
-* `(a, b]` - Half-open
-* `(a, b)` - Open
+* `[a, b] = [a, b] = {x ∈ ℝ | a ≤ x ≤ b}` - Closed
+* `[a, b) = [a, b[ = {x ∈ ℝ | a ≤ x < b}` - Half-closed
+* `(a, b] = ]a, b] = {x ∈ ℝ | a < x ≤ b}` - Half-open
+* `(a, b) = ]a, b[ = {x ∈ ℝ | a < x < b}` - Open
 
 ## Intervals
 
