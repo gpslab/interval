@@ -13,8 +13,9 @@ namespace GpsLab\Component\Tests\Interval\IPv4Network;
 use GpsLab\Component\Interval\IPv4Network\IPv4Network;
 use GpsLab\Component\Interval\IPv4Network\IPv4NetworkMask;
 use GpsLab\Component\Interval\IPv4Network\IPv4NetworkPoint;
+use PHPUnit\Framework\TestCase;
 
-class IPv4NetworkTest extends \PHPUnit_Framework_TestCase
+class IPv4NetworkTest extends TestCase
 {
     /**
      * @return array

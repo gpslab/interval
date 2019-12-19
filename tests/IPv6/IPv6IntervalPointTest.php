@@ -11,8 +11,9 @@
 namespace GpsLab\Component\Tests\Interval\IPv6;
 
 use GpsLab\Component\Interval\IPv6\IPv6IntervalPoint;
+use PHPUnit\Framework\TestCase;
 
-class IPv6IntervalPointTest extends \PHPUnit_Framework_TestCase
+class IPv6IntervalPointTest extends TestCase
 {
     /**
      * @return array
