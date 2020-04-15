@@ -223,4 +223,14 @@ class IntervalTypeTest extends TestCase
     {
         return call_user_func([$class, 'fromString'], $interval);
     }
+
+    /**
+     * @dataProvider getTypes
+     *
+     * @param BaseType $type
+     */
+    public function testRequiresSQLCommentHint(BaseType $type)
+    {
+        $this->assertTrue($type->requiresSQLCommentHint($this->platform));
+    }
 }

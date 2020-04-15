@@ -63,6 +63,14 @@ abstract class BaseType extends TextType
     }
 
     /**
+     * @return bool
+     */
+    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    {
+        return true;
+    }
+
+    /**
      * @return string
      */
     abstract protected function getIntervalClass();
