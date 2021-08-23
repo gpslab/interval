@@ -10,6 +10,7 @@
 
 namespace GpsLab\Component\Tests\Interval\IPv6;
 
+use GpsLab\Component\Interval\Exception\InvalidPointTypeException;
 use GpsLab\Component\Interval\IPv6\IPv6IntervalPoint;
 use PHPUnit\Framework\TestCase;
 
@@ -30,12 +31,13 @@ class IPv6IntervalPointTest extends TestCase
 
     /**
      * @dataProvider getInvalidIPs
-     * @expectedException \GpsLab\Component\Interval\Exception\InvalidPointTypeException
      *
      * @param string $ip
      */
     public function testInvalidIP($ip)
     {
+        $this->expectException(InvalidPointTypeException::class);
+
         new IPv6IntervalPoint($ip);
     }
 

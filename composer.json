@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "doctrine/dbal": "^2.2",
-        "phpunit/phpunit": "^5.7 || ^6.0",
+        "phpunit/phpunit": "^9.0",
         "scrutinizer/ocular": "~1.3"
     }
 }
