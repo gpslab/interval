@@ -1,6 +1,6 @@
-[![GitHub Actions][GA Image]][GA Link]
+[![GitHub Actions](https://github.com/gpslab/interval/workflows/CI/badge.svg)](https://github.com/gpslab/interval/actions?query=workflow%3A%22CI%22+branch%3Amaster)
 [![Latest Stable Version](https://img.shields.io/packagist/v/gpslab/interval.svg?maxAge=3600&label=stable)](https://packagist.org/packages/gpslab/interval)
-[![Code Coverage][Coverage Image]][CodeCov Link]
+[![Code Coverage](https://codecov.io/gh/gpslab/interval/branch/master/graph/badge.svg)](https://codecov.io/gh/gpslab/interval/branch/master)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/gpslab/interval.svg?maxAge=3600)](https://scrutinizer-ci.com/g/gpslab/interval/?branch=master)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/74587b70-e6e4-42b4-93c2-f1bef103bde9.svg?maxAge=3600&label=SLInsight)](https://insight.sensiolabs.com/projects/74587b70-e6e4-42b4-93c2-f1bef103bde9)
 [![StyleCI](https://styleci.io/repos/75078831/shield?branch=master)](https://styleci.io/repos/75078831)
@@ -238,11 +238,3 @@ doctrine:
 ## License
 
 This bundle is under the [MIT license](http://opensource.org/licenses/MIT). See the complete license in the file: LICENSE
-
-[GA Image]: https://github.com/gpslab/interval/workflows/CI/badge.svg
-
-[GA Link]: https://github.com/gpslab/interval/actions?query=workflow%3A%22CI%22+branch%3Amaster
-
-[Coverage Image]: https://codecov.io/gh/gpslab/interval/branch/master/graph/badge.svg
-
-[CodeCov Link]: https://codecov.io/gh/gpslab/interval/branch/master
