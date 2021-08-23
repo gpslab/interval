@@ -261,8 +261,6 @@ final class IntervalType
     }
 
     /**
-     * @param IntervalInterface $interval
-     *
      * @return string
      */
     public function formatInterval(IntervalInterface $interval)
@@ -272,8 +270,6 @@ final class IntervalType
 
     /**
      * @deprecated It's will be removed in later. You must use formatInterval()
-     *
-     * @param IntervalInterface $interval
      *
      * @return string
      */

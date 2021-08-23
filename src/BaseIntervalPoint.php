@@ -12,8 +12,6 @@ namespace GpsLab\Component\Interval;
 abstract class BaseIntervalPoint implements IntervalPointInterface
 {
     /**
-     * @param IntervalPointInterface $point
-     *
      * @return bool
      */
     public function eq(IntervalPointInterface $point)
@@ -22,8 +20,6 @@ abstract class BaseIntervalPoint implements IntervalPointInterface
     }
 
     /**
-     * @param IntervalPointInterface $point
-     *
      * @return bool
      */
     public function neq(IntervalPointInterface $point)
@@ -32,8 +28,6 @@ abstract class BaseIntervalPoint implements IntervalPointInterface
     }
 
     /**
-     * @param IntervalPointInterface $point
-     *
      * @return bool
      */
     public function lt(IntervalPointInterface $point)
@@ -42,8 +36,6 @@ abstract class BaseIntervalPoint implements IntervalPointInterface
     }
 
     /**
-     * @param IntervalPointInterface $point
-     *
      * @return bool
      */
     public function lte(IntervalPointInterface $point)
@@ -52,8 +44,6 @@ abstract class BaseIntervalPoint implements IntervalPointInterface
     }
 
     /**
-     * @param IntervalPointInterface $point
-     *
      * @return bool
      */
     public function gt(IntervalPointInterface $point)
@@ -62,8 +52,6 @@ abstract class BaseIntervalPoint implements IntervalPointInterface
     }
 
     /**
-     * @param IntervalPointInterface $point
-     *
      * @return bool
      */
     public function gte(IntervalPointInterface $point)

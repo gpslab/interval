@@ -19,9 +19,6 @@ class YearIntervalPoint extends BaseIntervalPoint
      */
     private $year;
 
-    /**
-     * @param \DateTime $date
-     */
     public function __construct(\DateTime $date)
     {
         $this->year = clone $date;

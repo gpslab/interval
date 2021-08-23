@@ -51,7 +51,6 @@ class IPv6Network
     private $comparator;
 
     /**
-     * @param IPv6NetworkPoint $ip
      * @param int $mask
      */
     private function __construct(IPv6NetworkPoint $ip, $mask)

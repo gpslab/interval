@@ -20,9 +20,6 @@ class IPv6NetworkComparator
      */
     private $network;
 
-    /**
-     * @param IPv6Network $network
-     */
     public function __construct(IPv6Network $network)
     {
         $this->network = $network;
@@ -30,8 +27,6 @@ class IPv6NetworkComparator
 
     /**
      * Checks if this network is equal to the specified network.
-     *
-     * @param IPv6Network $interval
      *
      * @return bool
      */
@@ -46,8 +41,6 @@ class IPv6NetworkComparator
     /**
      * Does this network contain the specified IP.
      *
-     * @param IPv6NetworkPoint $point
-     *
      * @return bool
      */
     public function contains(IPv6NetworkPoint $point)
@@ -60,8 +53,6 @@ class IPv6NetworkComparator
 
     /**
      * Does this network intersect the specified network.
-     *
-     * @param IPv6Network $network
      *
      * @return bool
      */
@@ -79,8 +70,6 @@ class IPv6NetworkComparator
 
     /**
      * Does this network abut with the network specified.
-     *
-     * @param IPv6Network $network
      *
      * @return bool
      */

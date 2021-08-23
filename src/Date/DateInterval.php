@@ -51,11 +51,6 @@ class DateInterval implements ComparableIntervalInterface
      */
     private $end;
 
-    /**
-     * @param DateIntervalPoint $start
-     * @param DateIntervalPoint $end
-     * @param IntervalType $type
-     */
     private function __construct(DateIntervalPoint $start, DateIntervalPoint $end, IntervalType $type)
     {
         if ($start->gte($end)) {
@@ -69,10 +64,6 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
-     * @param \DateTime $start
-     * @param \DateTime $end
-     * @param IntervalType $type
-     *
      * @return self
      */
     public static function create(\DateTime $start, \DateTime $end, IntervalType $type)
@@ -81,9 +72,6 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
-     * @param \DateTime $start
-     * @param \DateTime $end
-     *
      * @return self
      */
     public static function closed(\DateTime $start, \DateTime $end)
@@ -92,9 +80,6 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
-     * @param \DateTime $start
-     * @param \DateTime $end
-     *
      * @return self
      */
     public static function halfClosed(\DateTime $start, \DateTime $end)
@@ -103,9 +88,6 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
-     * @param \DateTime $start
-     * @param \DateTime $end
-     *
      * @return self
      */
     public static function halfOpen(\DateTime $start, \DateTime $end)
@@ -114,9 +96,6 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
-     * @param \DateTime $start
-     * @param \DateTime $end
-     *
      * @return self
      */
     public static function open(\DateTime $start, \DateTime $end)
@@ -166,8 +145,6 @@ class DateInterval implements ComparableIntervalInterface
 
     /**
      * Does this interval contain the specified point.
-     *
-     * @param \DateTime $point
      *
      * @return bool
      */
@@ -263,8 +240,6 @@ class DateInterval implements ComparableIntervalInterface
     /**
      * The point is before the interval.
      *
-     * @param \DateTime $point
-     *
      * @return bool
      */
     public function before(\DateTime $point)
@@ -275,8 +250,6 @@ class DateInterval implements ComparableIntervalInterface
     /**
      * The point is after the interval.
      *
-     * @param \DateTime $point
-     *
      * @return bool
      */
     public function after(\DateTime $point)
@@ -285,8 +258,6 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
-     * @param \DateInterval|null $step
-     *
      * @return \Generator
      */
     public function iterate(\DateInterval $step = null)
@@ -307,8 +278,6 @@ class DateInterval implements ComparableIntervalInterface
     }
 
     /**
-     * @param \DateInterval|null $step
-     *
      * @return \DatePeriod
      */
     public function period(\DateInterval $step = null)
@@ -384,8 +353,6 @@ class DateInterval implements ComparableIntervalInterface
 
     /**
      * Returns a copy of this Interval with the interval type altered.
-     *
-     * @param IntervalType $type
      *
      * @return self
      */

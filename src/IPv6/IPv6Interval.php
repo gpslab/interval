@@ -52,11 +52,6 @@ class IPv6Interval implements ComparableIntervalInterface
      */
     private $end;
 
-    /**
-     * @param IPv6IntervalPoint $start
-     * @param IPv6IntervalPoint $end
-     * @param IntervalType $type
-     */
     private function __construct(IPv6IntervalPoint $start, IPv6IntervalPoint $end, IntervalType $type)
     {
         if ($start->gte($end)) {
@@ -72,7 +67,6 @@ class IPv6Interval implements ComparableIntervalInterface
     /**
      * @param string $start
      * @param string $end
-     * @param IntervalType $type
      *
      * @return self
      */
@@ -349,8 +343,6 @@ class IPv6Interval implements ComparableIntervalInterface
 
     /**
      * Returns a copy of this Interval with the interval type altered.
-     *
-     * @param IntervalType $type
      *
      * @return self
      */

@@ -85,7 +85,6 @@ class IntervalTypeTest extends TestCase
     /**
      * @dataProvider getTypeNames
      *
-     * @param BaseType $type
      * @param string $name
      */
     public function testGetName(BaseType $type, $name)
@@ -113,8 +112,6 @@ class IntervalTypeTest extends TestCase
 
     /**
      * @dataProvider getTypes
-     *
-     * @param BaseType $type
      */
     public function testConvertToDatabaseValueNull(BaseType $type)
     {
@@ -123,8 +120,6 @@ class IntervalTypeTest extends TestCase
 
     /**
      * @dataProvider getTypes
-     *
-     * @param BaseType $type
      */
     public function testConvertToPHPValueNull(BaseType $type)
     {
@@ -188,7 +183,6 @@ class IntervalTypeTest extends TestCase
     /**
      * @dataProvider getTypeIntervals
      *
-     * @param BaseType $type
      * @param string $class
      * @param string $interval
      */
@@ -202,7 +196,6 @@ class IntervalTypeTest extends TestCase
     /**
      * @dataProvider getTypeIntervals
      *
-     * @param BaseType $type
      * @param string $class
      * @param string $interval
      */
@@ -226,8 +219,6 @@ class IntervalTypeTest extends TestCase
 
     /**
      * @dataProvider getTypes
-     *
-     * @param BaseType $type
      */
     public function testRequiresSQLCommentHint(BaseType $type)
     {
