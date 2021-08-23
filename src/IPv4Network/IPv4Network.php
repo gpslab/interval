@@ -46,10 +46,6 @@ class IPv4Network implements IntervalInterface
      */
     private $comparator;
 
-    /**
-     * @param IPv4NetworkPoint $ip
-     * @param IPv4NetworkMask $mask
-     */
     private function __construct(IPv4NetworkPoint $ip, IPv4NetworkMask $mask)
     {
         $this->start = $ip;

@@ -19,9 +19,6 @@ class DateTimeIntervalPoint extends BaseIntervalPoint
      */
     private $date;
 
-    /**
-     * @param \DateTime $date
-     */
     public function __construct(\DateTime $date)
     {
         $this->date = clone $date;

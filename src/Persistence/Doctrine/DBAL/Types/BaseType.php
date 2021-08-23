@@ -20,9 +20,8 @@ abstract class BaseType extends TextType
 {
     /**
      * @param IntervalInterface|null $value
-     * @param AbstractPlatform $platform
      *
-     * @return null|string
+     * @return string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -35,9 +34,8 @@ abstract class BaseType extends TextType
      * @throws ConversionException
      *
      * @param mixed $value
-     * @param AbstractPlatform $platform
      *
-     * @return null|IntervalInterface
+     * @return IntervalInterface|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {

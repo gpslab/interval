@@ -52,11 +52,6 @@ class NumberInterval implements ComparableIntervalInterface
      */
     private $end;
 
-    /**
-     * @param NumberIntervalPoint $start
-     * @param NumberIntervalPoint $end
-     * @param IntervalType $type
-     */
     private function __construct(NumberIntervalPoint $start, NumberIntervalPoint $end, IntervalType $type)
     {
         if ($start->gte($end)) {
@@ -72,7 +67,6 @@ class NumberInterval implements ComparableIntervalInterface
     /**
      * @param int|float $start
      * @param int|float $end
-     * @param IntervalType $type
      *
      * @return self
      */
@@ -367,8 +361,6 @@ class NumberInterval implements ComparableIntervalInterface
 
     /**
      * Returns a copy of this Interval with the interval type altered.
-     *
-     * @param IntervalType $type
      *
      * @return self
      */

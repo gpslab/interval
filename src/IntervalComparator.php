@@ -20,9 +20,6 @@ class IntervalComparator
      */
     private $interval;
 
-    /**
-     * @param ComparableIntervalInterface $interval
-     */
     public function __construct(ComparableIntervalInterface $interval)
     {
         $this->interval = $interval;
@@ -30,8 +27,6 @@ class IntervalComparator
 
     /**
      * Checks if this Interval is equal to the specified interval.
-     *
-     * @param ComparableIntervalInterface $interval
      *
      * @return bool
      */
@@ -46,8 +41,6 @@ class IntervalComparator
 
     /**
      * Does this interval contain the specified point.
-     *
-     * @param IntervalPointInterface $point
      *
      * @return bool
      */
@@ -66,8 +59,6 @@ class IntervalComparator
 
     /**
      * Does this interval intersect the specified interval.
-     *
-     * @param ComparableIntervalInterface $interval
      *
      * @return bool
      */
@@ -93,8 +84,6 @@ class IntervalComparator
 
     /**
      * Gets the intersection between this interval and another interval.
-     *
-     * @param ComparableIntervalInterface $interval
      *
      * @return ComparableIntervalInterface|null
      */
@@ -145,8 +134,6 @@ class IntervalComparator
     /**
      * Gets the covered interval between this Interval and another interval.
      *
-     * @param ComparableIntervalInterface $interval
-     *
      * @return ComparableIntervalInterface
      */
     public function cover(ComparableIntervalInterface $interval)
@@ -185,8 +172,6 @@ class IntervalComparator
 
     /**
      * Gets the gap between this interval and another interval.
-     *
-     * @param ComparableIntervalInterface $interval
      *
      * @return ComparableIntervalInterface|null
      */
@@ -232,8 +217,6 @@ class IntervalComparator
     /**
      * Does this interval abuts with the interval specified.
      *
-     * @param ComparableIntervalInterface $interval
-     *
      * @return bool
      */
     public function abuts(ComparableIntervalInterface $interval)
@@ -246,8 +229,6 @@ class IntervalComparator
 
     /**
      * Joins the interval between the adjacent.
-     *
-     * @param ComparableIntervalInterface $interval
      *
      * @return ComparableIntervalInterface|null
      */
@@ -263,8 +244,6 @@ class IntervalComparator
     /**
      * Gets the union between this interval and another interval.
      *
-     * @param ComparableIntervalInterface $interval
-     *
      * @return ComparableIntervalInterface|null
      */
     public function union(ComparableIntervalInterface $interval)
@@ -279,8 +258,6 @@ class IntervalComparator
     /**
      * The point is before the interval.
      *
-     * @param IntervalPointInterface $point
-     *
      * @return bool
      */
     public function before(IntervalPointInterface $point)
@@ -294,8 +271,6 @@ class IntervalComparator
 
     /**
      * The point is after the interval.
-     *
-     * @param IntervalPointInterface $point
      *
      * @return bool
      */

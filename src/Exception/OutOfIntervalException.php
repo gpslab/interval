@@ -16,7 +16,6 @@ class OutOfIntervalException extends \OutOfRangeException
 {
     /**
      * @param mixed $point
-     * @param IntervalInterface $interval
      *
      * @return self
      */

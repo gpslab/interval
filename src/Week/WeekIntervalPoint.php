@@ -19,9 +19,6 @@ class WeekIntervalPoint extends BaseIntervalPoint
      */
     private $week;
 
-    /**
-     * @param \DateTime $date
-     */
     public function __construct(\DateTime $date)
     {
         $this->week = $this->getMondayThisWeek($date)->setTime(0, 0, 0);
@@ -31,8 +28,6 @@ class WeekIntervalPoint extends BaseIntervalPoint
      * Bugfix for get monday of this week.
      *
      * @see https://bugs.php.net/bug.php?id=63740
-     *
-     * @param \DateTime $date
      *
      * @return \DateTime
      */

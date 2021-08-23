@@ -20,9 +20,6 @@ class IPv4NetworkComparator
      */
     private $network;
 
-    /**
-     * @param IPv4Network $network
-     */
     public function __construct(IPv4Network $network)
     {
         $this->network = $network;
@@ -30,8 +27,6 @@ class IPv4NetworkComparator
 
     /**
      * Checks if this network is equal to the specified network.
-     *
-     * @param IPv4Network $interval
      *
      * @return bool
      */
@@ -46,8 +41,6 @@ class IPv4NetworkComparator
     /**
      * Does this network contain the specified IP.
      *
-     * @param IPv4NetworkPoint $point
-     *
      * @return bool
      */
     public function contains(IPv4NetworkPoint $point)
@@ -57,8 +50,6 @@ class IPv4NetworkComparator
 
     /**
      * Does this network intersect the specified network.
-     *
-     * @param IPv4Network $network
      *
      * @return bool
      */
@@ -76,8 +67,6 @@ class IPv4NetworkComparator
 
     /**
      * Does this network abut with the network specified.
-     *
-     * @param IPv4Network $network
      *
      * @return bool
      */

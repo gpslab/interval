@@ -19,9 +19,6 @@ class MonthIntervalPoint extends BaseIntervalPoint
      */
     private $month;
 
-    /**
-     * @param \DateTime $date
-     */
     public function __construct(\DateTime $date)
     {
         $this->month = clone $date;
