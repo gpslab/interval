@@ -32,16 +32,17 @@ use GpsLab\Component\Interval\Persistence\Doctrine\DBAL\Types\YearIntervalType;
 use GpsLab\Component\Interval\Time\TimeInterval;
 use GpsLab\Component\Interval\Week\WeekInterval;
 use GpsLab\Component\Interval\Year\YearInterval;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class IntervalTypeTest extends TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|AbstractPlatform
+     * @var MockObject|AbstractPlatform
      */
     private $platform;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->platform = $this->createMock(AbstractPlatform::class);
     }
