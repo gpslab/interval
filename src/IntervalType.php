@@ -15,6 +15,7 @@ use GpsLab\Component\Interval\Exception\InvalidIntervalFormatException;
 
 /**
  * @see https://en.wikipedia.org/wiki/Interval_(mathematics)
+ * @psalm-immutable
  */
 final class IntervalType
 {
