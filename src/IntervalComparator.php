@@ -140,7 +140,12 @@ class IntervalComparator
     {
         $type = IntervalType::TYPE_CLOSED;
 
-        if ($this->interval->startPoint()->lt($interval->startPoint())) {
+        if ($this->interval->startPoint()->eq($interval->startPoint())) {
+            $start = $this->interval->startPoint();
+            if ($this->interval->type()->startExcluded() && $interval->type()->startExcluded()) {
+                $type |= IntervalType::TYPE_START_EXCLUDED;
+            }
+        } elseif ($this->interval->startPoint()->lt($interval->startPoint())) {
             $start = $this->interval->startPoint();
             if ($this->interval->type()->startExcluded()) {
                 $type |= IntervalType::TYPE_START_EXCLUDED;
@@ -152,7 +157,12 @@ class IntervalComparator
             }
         }
 
-        if ($this->interval->endPoint()->gt($interval->endPoint())) {
+        if ($this->interval->endPoint()->eq($interval->endPoint())) {
+            $end = $this->interval->endPoint();
+            if ($this->interval->type()->endExcluded() && $interval->type()->endExcluded()) {
+                $type |= IntervalType::TYPE_END_EXCLUDED;
+            }
+        } elseif ($this->interval->endPoint()->gt($interval->endPoint())) {
             $end = $this->interval->endPoint();
             if ($this->interval->type()->endExcluded()) {
                 $type |= IntervalType::TYPE_END_EXCLUDED;
