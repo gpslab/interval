@@ -1,3 +1,0 @@
-rules:
-    php.duplicated_code:
-        enabled: false
