@@ -13,6 +13,7 @@ namespace GpsLab\Component\Tests\Interval\Number;
 use Generator;
 use GpsLab\Component\Interval\Number\NumberInterval;
 use PHPUnit\Framework\TestCase;
+use function iterator_to_array;
 
 class NumberIntervalTest extends TestCase
 {
@@ -145,6 +146,53 @@ class NumberIntervalTest extends TestCase
         $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
 
         $this->assertEquals($expected_interval, $a->union($b));
+    }
+
+    /**
+     * @return Generator<array-key, array{string, string, string}>
+     */
+    public function providerCoverInterval(): Generator
+    {
+        $unionTestData = iterator_to_array($this->providerUnionInterval());
+
+        // Override `Not intersecting` interval expectations from Union test
+        $unionTestData['Not intersecting'] = ['(1,2]', '[4,7)', '(1,7)'];
+
+        yield from $unionTestData;
+    }
+
+    /**
+     * @dataProvider providerCoverInterval
+     */
+    public function testCoverInterval(string $a_interval, string $b_interval, ?string $expected_interval): void
+    {
+        $a = NumberInterval::fromString($a_interval);
+        $b = NumberInterval::fromString($b_interval);
+        $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
+
+        $this->assertEquals($expected_interval, $a->cover($b));
+    }
+
+    /**
+     * @return Generator<array-key, array{string, string, string}>
+     */
+    public function providerJoinInterval(): Generator
+    {
+        yield 'Adjacent closed' => ['[5,6]', '[6,7]', '[5,7]'];
+        yield 'Adjacent open' => ['[5,6)', '(6,7]', '[5,7]'];
+        yield 'Not adjacent' => ['(1,2]', '[4,7)', null];
+    }
+
+    /**
+     * @dataProvider providerJoinInterval
+     */
+    public function testJoinInterval(string $a_interval, string $b_interval, ?string $expected_interval): void
+    {
+        $a = NumberInterval::fromString($a_interval);
+        $b = NumberInterval::fromString($b_interval);
+        $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
+
+        $this->assertEquals($expected_interval, $a->join($b));
     }
 
     public function testIterate()
