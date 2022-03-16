@@ -10,6 +10,7 @@
 
 namespace GpsLab\Component\Tests\Interval\Number;
 
+use Generator;
 use GpsLab\Component\Interval\Number\NumberInterval;
 use PHPUnit\Framework\TestCase;
 
@@ -115,6 +116,35 @@ class NumberIntervalTest extends TestCase
         $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
 
         $this->assertEquals($expected_interval, $origin_interval->intersection($compare_interval));
+    }
+
+    /**
+     * @return Generator<array-key, array{string, string, string|null}>
+     */
+    public function providerUnionInterval(): Generator
+    {
+        yield 'Closed with closed' => ['[5,10]', '[1,7]', '[1,10]'];
+        yield 'Closed with closed (same)' => ['[5,10]', '[5,10]', '[5,10]'];
+        yield 'Open with open' => ['(5,10)', '(1,7)', '(1,10)'];
+        yield 'Open with open (same)' => ['(5,8)', '(5,8)', '(5,8)'];
+        yield 'Open with closed' => ['(5,8)', '[5,8]', '[5,8]'];
+        yield 'Closed with open' => ['[5,8]', '(5,8)', '[5,8]'];
+        yield 'Not intersecting' => ['(1,2]', '[4,7)', null];
+        yield 'Open start with open end' => ['(1,4]', '[4,7)', '(1,7)'];
+        yield 'Open start with closed end' => ['(5,8]', '[6,9]', '(5,9]'];
+        yield 'Closed start with open end' => ['[5,8]', '(6,9)', '[5,9)'];
+    }
+
+    /**
+     * @dataProvider providerUnionInterval
+     */
+    public function testUnionInterval(string $a_interval, string $b_interval, ?string $expected_interval): void
+    {
+        $a = NumberInterval::fromString($a_interval);
+        $b = NumberInterval::fromString($b_interval);
+        $expected_interval = $expected_interval ? NumberInterval::fromString($expected_interval) : null;
+
+        $this->assertEquals($expected_interval, $a->union($b));
     }
 
     public function testIterate()
